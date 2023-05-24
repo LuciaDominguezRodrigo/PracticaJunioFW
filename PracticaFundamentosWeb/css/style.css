@@ -38,7 +38,7 @@ body{
 
 /*pie de página*/
 .footer{
-  background-color: #eec45a;
+  background-color:beige;
   width:100%;
   height:10%;
  /*max-height: fit-content*/;
@@ -98,7 +98,7 @@ body{
     margin-right: 10%;
     margin-top: 20px;
     margin-bottom: 20px;
-    color:bisque;
+    color:rgb(0, 0, 0);
 }
 
 .imres1{
@@ -171,5 +171,16 @@ input[type="radio"]:checked ~ label {
   text-decoration-color: darkkhaki;
   text-align: center;
   color:bisque;
+}
+
+.iniciarpagina {
+  font-size: 20px;
+  font-weight: bolder;
+  color:black;
+   align-items: center;
+}
+
+#imagenpresentacion{
+  margin: auto;
 }
 
