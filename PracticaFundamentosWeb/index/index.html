@@ -18,18 +18,15 @@
   </head>
 
 
-  <body style="background-color:#212529;">
+  <body style="background-color:#000000;"> <!--color del fondo, hay que cambiarlo-->
   <!--========================================================== -->
                         <!-- ENCABEZADO nn --> 
+      <!--en esta parte se indicará la barra de navegación-->
   <!--========================================================== -->
-  <header class="container-fluid bg-warning d-flex justify-content-center">
-    <p class="text-dark mb-0 p-2 fs-6">Llámanos: 987 65 43 21</p>
-  </header>
-
   <nav class="navbar navbar-expand-lg sticky-lg-top navbar-dark bg-dark p-3" id="barranav">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="../imagenes/logo definitivo.png" alt="" width="200" height="40">
+        <img src="../imagenes/logo definitivo.png" alt="" width="200" height="40"> <!--imagen del logo-->
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,9 +41,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#familia">QUIENES SOMOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">CONTACTOS</a>
           </li>
         </ul>
       </div>
@@ -72,27 +66,18 @@
 
       <div class="carousel-item active" data-bs-interval="7500">
         <img src="../imagenes/tortilla2.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2><div class="neon">TORTILLA DE PATATAS</div></h2>
-
-        </div>
       </div>
 
       <div class="carousel-item" data-bs-interval="7500">
         <img src="../imagenes/paella.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2><div class="neon">PAELLA</div></h2>
-        </div>
-
       </div>
+
       <div class="carousel-item" data-bs-interval="7500">
         <img src="../imagenes/lentejas.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h3><div class="neon">LENTEJAS</div></h3>
-        </div>
-
       </div>
     </div>
+
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -126,227 +111,6 @@
                         <!-- platos -->
   <!--========================================================== -->
   <section class="w-100 text-light" >
-    <section class="w-50 mx-auto text-center pt-3 text-light" id="carta">
-      <h1 class="p-3 fs-2 border-top border-bottom mt-3">PLATOS DESTACADOS</h1>
-    </section>
-
-
-      <div  class="row w-75 mx-auto" id="servicios-fila-1"  >
-        <!--lentejas-->
-        <div class="plato rounded-3 m-3" id="lentejas">
-          <div  class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap" >
-            <img src="../imagenes/lentejas.jpg" alt="desarrollo" width="200" height="200">
-
-            <div class="bg-dark" id="joe" >
-              <h3 class="fs-5 mt-4 px-4 pb-1 m-1" id="titulolentejas" >Lentejas de la abuela <span class="fa fa-star checked"></span><span
-                  class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span
-                  class="fa fa-star"></span><span class="fa fa-star"></span></h3>
-              <p class="px-4" id="infolentejas" style="display:none">La mejor elección en un día de invierno. Hechas en el día y con ingredientes frescos y
-                naturales, no dudarás en elegirlas los martes y los jueves en nuestra carta. También se sirven para
-                llevar.     INGREDIENTES: lentejas,chorizo,carne.</p>
-              <button  type="button" onclick="masinfo('lentejas');"    class="btn btn-success info m-4">Más información</button>
-              <button type="button"class="btn btn-danger borrar m-3" onclick="eliminarElemento('lentejas')">Eliminar elemento</button>
-              <button type="button" onclick ="MuestraElementos('paella','tortilla','infolentejas')"class="btn btn-secondary ver m-4">Mostrar elementos</button>
-            </div>
-          </div>
-        </div>
-        
-        
-        <!--tortilla-->
-        <div class="plato rounded-3 m-3" id="tortilla">
-          <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap">
-            <img src="../imagenes/tortilla.jpg" alt="desarrollo" width="200" height="200">
-
-            <div class="bg-dark">
-              <h3 class="fs-5 mt-4 px-4 pb-1 m-1" id="titulotortilla">Tortilla de patatas <span class="fa fa-star checked"></span><span
-                  class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span
-                  class="fa fa-star checked"></span><span class="fa fa-star checked"></span></h3>
-              <p class="px-4" id="infotortilla" style="display:none">Un clásico de la gastronomía española directo a tu mesa. Disfrutala los lunes y los
-                viernes como aperitivo o como parte de nuestra carta, seguro que no te dejará indiferente.
-                  INGREDIENTES: patata, cebolla, aceite de oliva virgen extra, sal.  </p>
-              <button type="button"   onclick="masinfo1() "   class="btn btn-success info m-4">Más información</button>
-              <button type="button" class="btn btn-danger borrar m-4" onclick="eliminarElemento('tortilla')">Eliminar elemento</button>
-                <button type="button" onclick ="MuestraElementos('lentejas','paella');"class="btn btn-secondary ver m-4">Mostrar elementos</button>
-            </div>
-          </div>
-        </div>
-        
-
-
-        <!--paella-->
-        <div class="plato rounded-3 m-3" id="paella">
-          <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap">
-            <img src="../imagenes/paella.jpg" alt="desarrollo" width="200" height="220">
-
-            <div class="bg-dark">
-              <h3 class="fs-5 mt-4 px-4 pb-1 m-1" id="titulopaella">Paella <span class="fa fa-star checked"></span><span
-                  class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span
-                  class="fa fa-star checked"></span><span class="fa fa-star"></span></h3>
-              <p class="px-4" id="infopaella" style="display:none">No podía faltar la comida típica de las vacaciones en Valencia. Únicamente disponible los
-                fines de semana, encarga tu paellera familiar o ven a probarla en nuestra carta, te sorprenderá.
-                 INGREDIENTES: arroz de las huertas de Valencia, marisco freso, pimentón, sal, sofrito(cebolla y pimiento). </p>
-              <button type="button"  onclick="masinfo2() "  class="btn btn-success info m-4">Más información</button>
-  <button type="button" class="btn btn-danger borrar m-4" onclick="eliminarElemento('paella')">Eliminar elemento</button>
-                <button type="button" onclick ="MuestraElementos('lentejas','tortilla');"class="btn btn-secondary ver m-4">Mostrar elementos</button>
-            </div>
-          </div>
-        </div>
-
-        <!--botón no elementos-->
-        <button type="button" class="btn btn-success btn-lg m-4" onclick="botonnuevoElemento();">Elementos</button>
-          <p id="sinelementos", style="display:none"> !No hay platos en la carta! ¿Es que no quieres comer? Vuelve a darle a volver para poder ver nuestros platos deliciosos.!ñam! </p>
-          <button type="reset" class="btn btn-primary m-3" value = "capturar" onclick="mostrarSecciones();" id="boton" style="display:none">volver</button>
-
-        <!-------------  MODIFICADORES Y AÑADIR  ----------------->
-        <!-- se implemenará cada uno con un botón. Hace que sea responsive, además de fácilmente accesible-->
-
-
-        <!--añadir elemento-->
-        <div class="anadirplato rounded-3 m-3">
-          <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap">
-            <img src="../imagenes/icono.png" alt="desarrollo" width="200" height="220">
-
-            <div class="bg-dark">
-              <h3 class="fs-5 mt-4 px-4 pb-1 m-1">AÑADIR PLATO<span class="fa fa-star checked invisible"></span><span
-                  class="fa fa-star checked invisible"></span><span class="fa fa-star checked invisible"></span><span
-                  class="fa fa-star checked invisible"></span><span class="fa fa-star invisible"></span></h3>
-              <p class="px-4">Añade un nuevo plato a la carta</p>
-              <button type="button" class="btn btn-success btn-lg m-4" onclick="mostrarformulario();">Añadir</button>
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="formulario rounded-3 m-3 pb-3" id="formulariob" style="display:none;"> 
-          <div class="bg-dark">
-            <form name="registro">
-                <div class="m-3">
-                <label for="formFile" class="form-label mt-3 text-white">Default file input example</label>
-                <input class="form-control" type="file" id="formFile">
-                </div>
-                <div class="m-3">
-                  <label for="exampleFormControlInput1" class="form-label text-white">Nombre del plato</label>
-                  <input class="form-control" type="text" placeholder="Nombre" name="nombre" id="nombreform">
-                </div>
-                <div class="m-3">
-                  <label for="exampleFormControlInput1" class="form-label text-white">Información del plato</label>
-                  <input class="form-control" type="text" placeholder="Nombre" name="info" id="infoform">
-                </div>
-    
-                <button type="reset" class="btn btn-primary m-3" value = "capturar" onclick="annadirPlato()">subir cambio</button>
-                <button type="button" class="btn btn-primary m-3"  onclick="volver();">Volver</button>
-            </form>
-        </div>
-      </div>
-
-
-
-      <!--modificar lentejas-->
-      <div class="anadirplato rounded-3 m-3">
-        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap">
-          <img src="../imagenes/icono.png" alt="desarrollo" width="200" height="220">
-
-          <div class="bg-dark">
-            <h3 class="fs-5 mt-4 px-4 pb-1 m-1">MODIFICAR LENTEJAS<span class="fa fa-star checked invisible"></span><span
-                class="fa fa-star checked invisible"></span><span class="fa fa-star checked invisible"></span><span
-                class="fa fa-star checked invisible"></span><span class="fa fa-star invisible"></span></h3>
-            <p class="px-4">Añade un nuevo plato a la carta</p>
-           
-            <button type="button" class="btn btn-success btn-lg m-4" onclick="botonmodif('formulariolen');">Modificar</button>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="formulario rounded-3 m-3 pb-3" id="formulariolen" style="display:none;"> 
-        <div class="bg-dark">
-          <form name="registro">
-              <div class="m-3">
-                <label for="exampleFormControlInput1" class="form-label text-white">Nombre del plato</label>
-                <input class="form-control" type="text" placeholder="Nombre" name="nombre" id="tituloformlen">
-              </div>
-              <div class="m-3">
-                <label for="exampleFormControlInput1" class="form-label text-white">Información del plato</label>
-                <input class="form-control" type="text" placeholder="Nombre" name="info" id="infoformlen">
-              </div>
-  
-              <button type="reset" class="btn btn-primary m-3" value = "capturar" onclick="modificarElementoLentejas();">subir cambio</button>
-              <button type="reset" class="btn btn-primary m-3" value = "capturar" onclick="cancelar('formulariolen');">cancelar</button>
-          </form>
-      </div>
-    </div>
-
-    <!--modificar tortilla-->
-
-      <div class="anadirplato rounded-3 m-3">
-        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap">
-          <img src="../imagenes/icono.png" alt="desarrollo" width="200" height="220">
-
-          <div class="bg-dark">
-            <h3 class="fs-5 mt-4 px-4 pb-1 m-1">MODIFICAR TORTILLA<span class="fa fa-star checked invisible"></span><span
-                class="fa fa-star checked invisible"></span><span class="fa fa-star checked invisible"></span><span
-                class="fa fa-star checked invisible"></span><span class="fa fa-star invisible"></span></h3>
-            <p class="px-4">Añade un nuevo plato a la carta</p>
-            <button type="button" class="btn btn-success btn-lg m-4" onclick="botonmodif('formulariotort');">Modificar</button>
-          </div>
-        </div>
-      </div>
-      
-      
-      <div class="formulario rounded-3 m-3 pb-3" id="formulariotort" style="display:none;"> 
-        <div class="bg-dark">
-          <form name="registro">
-        
-              <div class="m-3">
-                <label for="exampleFormControlInput1" class="form-label text-white">Nombre del plato</label>
-                <input class="form-control" type="text" placeholder="Nombre" name="nombre" id="tituloformtort">
-              </div>
-              <div class="m-3">
-                <label for="exampleFormControlInput1" class="form-label text-white">Información del plato</label>
-                <input class="form-control" type="text" placeholder="Nombre" name="info" id="infoformtort">
-              </div>
-  
-              <button type="reset" class="btn btn-primary m-3" value = "capturar" onclick="modificarElementoTortilla()">modificar</button>
-              <button type="reset" class="btn btn-primary m-3" value = "capturar" onclick="cancelar('formulariotort')">cancelar</button>
-          </form>
-      </div>
-      </div>
-      <div class="anadirplato rounded-3 m-3">
-        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap">
-          <img src="../imagenes/icono.png" alt="desarrollo" width="200" height="220">
-
-          <!--modificar paella-->
-          <div class="bg-dark">
-            <h3 class="fs-5 mt-4 px-4 pb-1 m-1">MODIFICAR PAELLA<span class="fa fa-star checked invisible"></span><span
-                class="fa fa-star checked invisible"></span><span class="fa fa-star checked invisible"></span><span
-                class="fa fa-star checked invisible"></span><span class="fa fa-star invisible"></span></h3>
-            <p class="px-4">Añade un nuevo plato a la carta</p>
-            <button type="button" class="btn btn-success btn-lg m-4" onclick="botonmodif('formulariopae');">Modificar</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="formulario rounded-3 m-3 pb-3" id="formulariopae" style="display:none;"> 
-        <div class="bg-dark">
-          <form name="registro">
-              <div class="m-3">
-                <label for="exampleFormControlInput1" class="form-label text-white">Nombre del plato</label>
-                <input class="form-control" type="text" placeholder="Nombre" name="nombre" id="tituloformpae">
-              </div>
-              <div class="m-3">
-                <label for="exampleFormControlInput1" class="form-label text-white">Información del plato</label>
-                <input class="form-control" type="text" placeholder="Nombre" name="info" id="infoformpae">
-              </div>
-  
-              <button type="reset" class="btn btn-primary m-3" value = "capturar" onclick="modificarElementoPaella()">subir cambio</button>
-              <button type="reset" class="btn btn-primary m-3" value = "capturar" onclick="cancelar('formulariopae')">cancelar</button>
-          </form>
-
-      </div>
-
-      
-      </div>
 
   </section>
 

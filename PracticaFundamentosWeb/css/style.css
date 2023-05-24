@@ -21,31 +21,6 @@ body{
   }
 }
 
-/*TEXTO NEÓN*/
-.neon {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    border: none;
-    font: normal 48px/normal Helvetica, sans-serif;
-    color: rgba(255,255,255,1);
-    text-decoration: normal;
-    text-align: center;
-    -o-text-overflow: clip;
-    text-overflow: clip;
-    white-space: pre;
-    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #4f3900 , 0 0 70px #4f3900 , 0 0 80px #4f3900 , 0 0 100px #4f3900 ;
-    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  }
-  
-  .neon:hover {
-    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff9d00 , 0 0 70px #ff9d00 , 0 0 80px #ff9d00 , 0 0 100px #ff9d00 ;
-  }
 
 /*ESTILOS DE LA BARRA DE NAVEGACIÓN*/
 #barranav{
@@ -57,27 +32,16 @@ body{
     max-height: 30rem;
 }
 
-/*ESTILO DE LOS CUADROS DE LOS PALATOS*/
-.plato, .formulario {
-  background-color: #eec45a;
-}
 
-/*FORMULARIO*/
-.formulario {
-  display: block;
-}
 
-/*ESTILO DE VALORACIONES ESTRELLA*/
-.checked {
-  color: orange;
-}
+
 
 /*pie de página*/
 .footer{
   background-color: #eec45a;
   width:100%;
-  height:30%;
-  max-height: fit-content;
+  height:10%;
+ /*max-height: fit-content*/;
 }
 
 .footer-content{
