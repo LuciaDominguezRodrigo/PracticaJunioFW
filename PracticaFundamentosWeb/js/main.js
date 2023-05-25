@@ -48,6 +48,11 @@ for (let plato of ejemploPlatos){
     addPlato(plato)
 }
 
+
+function mostrarSeccion(s){
+  
+
+}
 /*
 // Para solo mostrar la pagina principal al comienzo de la ejecución
 // Para solo mostrar la pagina principal al comienzo de la ejecución
