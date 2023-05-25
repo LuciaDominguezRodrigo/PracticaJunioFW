@@ -48,7 +48,7 @@ for (let plato of ejemploPlatos){
     addPlato(plato)
 }
 
-
+/*
 // Para solo mostrar la pagina principal al comienzo de la ejecución
 // Para solo mostrar la pagina principal al comienzo de la ejecución
 $(function () {
@@ -81,7 +81,7 @@ function mostrarPlatos(){
 
 function mostrarPlato(i){
   $('#noElementsMessage').hide()
-  return`
+  return
       <div class="card h-100">
           <img class="card-img-top" src="` + Plato[i].getImagen() + `" alt="..." />
           <div class="card-body p-4">
@@ -116,9 +116,7 @@ function Modificar(i){
 }
 
 
-
-/*
-COSAS DE LA ANTIGUA PRÁCTICA QUE PUEDEN SERVIR
+//COSAS DE LA ANTIGUA PRÁCTICA QUE PUEDEN SERVIR
 function hide(e) {
   e.style.display = "none";
 }
