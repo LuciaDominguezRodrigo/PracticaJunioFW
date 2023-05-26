@@ -17,7 +17,7 @@
 </head>
 
 
-<body> <!--color del fondo, hay que cambiarlo-->
+<body onload="inicializarSecciones()"> <!--color del fondo, hay que cambiarlo-->
   <!--========================================================== -->
   <!-- ENCABEZADO nn -->
   <!--en esta parte se indicará la barra de navegación-->
@@ -32,15 +32,15 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-0 mt-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#inicio">INICIO</a>
+            <button class="nav-link" aria-current="page" onclick="mostrarSeccion('inicio')"">INICIO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#carta">NUESTRA CARTA</a>
+            <button class="nav-link" onclick="mostrarSeccion('platos')">NUESTRA CARTA</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#familia">QUIENES SOMOS</a>
+            <button class="nav-link" onclick="mostrarSeccion('quienessomos')">QUIENES SOMOS</a>
           </li>
         </ul>
       </div>
@@ -50,8 +50,7 @@
   <!--========================================================== -->
   <!-- PÁGINA DE INICIO -->
   <!--========================================================== -->
-
-  <section>
+  <section class="inicio">
     <!--Carrusel-->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -105,7 +104,6 @@
     <p class="titulotext">Contamos con terraza exterior climatizada. Pequeño jardín incluido</p>
 
     <img class="imres1" src="../imagenes/RESTAURANTE1.jpg">
-
   </section>
 
   <!--========================================================== -->
@@ -120,7 +118,7 @@
   <!--========================================================== -->
   <!-- QUIENES SOMOS-->
   <!--========================================================== -->
-  <section>
+  <section class="quienessomos">
     <section class="quienessomos w-50 mx-auto text-center pt-3 text-dark mt-3">
       <h1 class="p-3 fs-2 border-top border-bottom">QUIENES SOMOS</h1>
     </section>

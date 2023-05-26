@@ -5,9 +5,7 @@ body {
     background-color: rgb(255, 140, 0);
 }
 
-section { /*PARA IMPLEMENTAR LA FUNCIÓN MOSTRARSECCION DE JS*/
-  display:block;
-}
+
 
 
 /*ESTILOS DE LA BARRA DE NAVEGACIÓN*/

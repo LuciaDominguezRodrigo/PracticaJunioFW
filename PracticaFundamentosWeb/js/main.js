@@ -24,16 +24,16 @@ class Plato {
   setDescripcion = descripcion => this.descripcion = descripcion
 
   getPrecio = () => this.precio
-  setNombre = precio => this.precio = precio
+  setPrecio = precio => this.precio = precio
 
   getValoracion = () => this.valoracion
-  setNombre = valoracion => this.valoracion = valoracion
+  setValoracion = valoracion => this.valoracion = valoracion
 
   getIngredientes = () => this.ingredientes
-  setNombre = ingredientes => this.ingredientes = ingredientes
+  setIngredientes = ingredientes => this.ingredientes = ingredientes
 
   getImagen = () => this.imagen
-  setNombre = imagen => this.imagen = imagen
+  setImagen = imagen => this.imagen = imagen
 }
 
   //ARRAY DE OBJETOS DE LA CLASE PLATO
@@ -44,15 +44,27 @@ function addPlato (p){
     arrayPlatos.push(newPlato)
 }
 
-for (let plato of ejemploPlatos){
-    addPlato(plato)
+
+function mostrarSeccion(s) {
+  let allSections = document.getElementsByTagName('section');
+  for (let i = 0; i < allSections.length; i++) {
+    allSections[i].style.display = 'none';
+  }
+  let section = document.getElementsByClassName(s);
+  for (let i = 0; i < section.length; i++) {
+    section[i].style.display = 'block';
+  }
 }
 
-
-function mostrarSeccion(s){
-  
-
+function inicializarSecciones(){
+  let allSections = document.getElementsByTagName('section');
+  for (let i = 0; i < allSections.length; i++) {
+    if(allSections[i].className.includes("inicio") == false){
+      allSections[i].style.display = 'none';
+    }
+  }
 }
+
 /*
 // Para solo mostrar la pagina principal al comienzo de la ejecución
 // Para solo mostrar la pagina principal al comienzo de la ejecución
