@@ -44,8 +44,8 @@ function crearPlato(nom, desc, prec, val, ingr, im) { //('Albóndigas','Las más
    posicionPlatoInsertado = (arrayPlatos.push(plato) - 1);
 }
 
-crearPlato('Albondigas', 'Bolas de carne', 15, 10.0, ['Carne de vacuno triturada', 'Huevos', 'Harina', 'Perejil', '3 dientes de ajo', '1 cebolla'], '../PracticaFundamentosWeb/imagenes/Albondigas.jpeg');
-crearPlato('Guisantes con jamon', 'Pelotitas verdes con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], '../PracticaFundamentosWeb/imagenes/Guisantes.jpeg');
+crearPlato('Albondigas', 'Bolas de carne', 15, 10.0, ['Carne de vacuno triturada', 'Huevos', 'Harina', 'Perejil', '3 dientes de ajo', '1 cebolla'], 'Img/Imagenes/Albondigas.jpeg');
+crearPlato('Guisantes con jamon', 'Pelotitas verdes con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], 'Img/Imagenes/Guisantes.jpeg');
 
 function mostrarSeccion(s) {
    let allSections = document.getElementsByTagName('section');
@@ -66,34 +66,6 @@ function inicializarSecciones() {
       }
    }
 }
-
-function mostrarPlato(i){
-   $('#noElementsMessage').hide()
-   return
-   `  <div class="card h-100">
-
-           <img class="card-img-top" src=" + ${Plato[i].getImagen()} + " alt="..." />
-           <div class="card-body p-4">
-               <div class="text-center">
-                   <h5 id="nombrePlato" class="fw-bolder"> + ${Plato[i].getNombre()} </h5>
-                   <div id="precioPlato"> + ${Plato[i].getPrecio()} +</div>
-               </div>
-           </div>
-           <!-- Product actions-->
-           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-               <div class="text-center"><a id="boton- + ${i} + class="btn btn-outline-dark mt-auto" href="#">Mas info</a></div>
-           </div>
-       </div>
-   `
- }
-
- function mostrarPlatos(){
-   for (let i = 0; i < Plato.length; i++) {
-       $("#platos").append(mostrarPlato(i));
-   }
-   $('#platos').show()
- }
-
 
 
 /*
