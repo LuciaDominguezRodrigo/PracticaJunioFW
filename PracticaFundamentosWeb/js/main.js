@@ -57,7 +57,6 @@ function mostrarSeccion(s) {
    for (let i = 0; i < section.length; i++) {
       section[i].style.display = 'block';
    }
-   $("#anadirPlato").show()
 }
 
 function inicializarSecciones() {
