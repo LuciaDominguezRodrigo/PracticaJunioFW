@@ -51,11 +51,13 @@ function mostrarSeccion(s) {
    let allSections = document.getElementsByTagName('section');
    for (let i = 0; i < allSections.length; i++) {
       allSections[i].style.display = 'none';
+      
    }
    let section = document.getElementsByClassName(s);
    for (let i = 0; i < section.length; i++) {
       section[i].style.display = 'block';
    }
+   $("#anadirPlato").show()
 }
 
 function inicializarSecciones() {

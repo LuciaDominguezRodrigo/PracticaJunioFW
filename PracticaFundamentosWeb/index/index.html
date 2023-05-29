@@ -109,10 +109,73 @@
    <!--========================================================== -->
    <!-- PLATOS -->
    <!--========================================================== -->
-   <section id="platos" class="w-100 text-dark">
+   <Section id="platos">
+      <div>
+         <label for="nombrePlato"></label>
+      </div>
 
 
-   </section>
+
+   </Section>
+   
+   <!-- formulario platos-->
+   <section class="page-section" id="anadirPlato">
+      <div class="container">
+          <!-- TITULO PAGINA-->
+          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Nuevo Plato</h2>
+          <!-- Icon Divider-->
+          <div class="divider-custom">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+              <div class="divider-custom-line"></div>
+          </div>
+          <!-- Contact Section Form-->
+          <div class="row justify-content-center">
+              <div class="col-lg-8 col-xl-7">
+                  <form id="contactForm">
+                      <!-- Nombre del plato input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="nombre" type="text" placeholder="Enter your name..."  required="Un nombre es requerido" />
+                          <label for="name">Nombre del plato</label>
+                          <div class="invalid-feedback" >Un nombre es requerido</div>
+                      </div>
+                      <!--Descripcion del palto input-->
+                      <div class="form-floating mb-3">
+                          <textarea class="form-control" id="descripcion" type="text" placeholder=" " style="height: 10rem"></textarea>
+                          <label for="message">Descripcion</label>
+                       </div>
+                      <!-- Precio del plato input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="precio" type="number" placeholder=" " />
+                          <label for="phone">Precio</label>
+                      </div>
+
+                      <!--Valoracion del plato-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="valoracion" type="number" placeholder=" " min="0" max="10"  />
+                          <label for="phone">Valoracion</label>
+                      </div>
+
+                      <!-- Ingredientes del plato input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="Ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
+                          <label for="message">Ingredientes</label>
+                          <p></p>
+                          <button class="btn bg-secondary bg-transparent btn-outline-dark" id="addIngrediente">Añadir Ingrediente</button>
+                      </div>
+
+                      <!--Imagen del plato input-->
+                      <div class="form-floating mb-3">
+                          <h4><p>Imagen</p></h4>
+                          <input id="imagen" type="file" placeholder="(123) 456-7890" data-sb-validations="required" />
+                      </div>
+                      <button class="btn btn-primary btn-xl" id="crearNuevoPlato" type="submit">Guardar</button>
+                      <button class="btn btn-primary btn-xl" id="Cancelar" type="submit" onclick="mostarPlatos()">Cancelar</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
 
 
 
