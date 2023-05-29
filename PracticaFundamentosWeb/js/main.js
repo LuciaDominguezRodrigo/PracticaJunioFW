@@ -56,6 +56,21 @@ function inicializarSecciones() {
 }
 
 
+function mostrarSeccion(s) {
+  if (s=="platos"){
+    mostrarPlatos();
+  }
+   let allSections = document.getElementsByTagName('section');
+   for (let i = 0; i < allSections.length; i++) {
+      allSections[i].style.display = 'none';
+      
+   }
+   let section = document.getElementsByClassName(s);
+   for (let i = 0; i < section.length; i++) {
+      section[i].style.display = 'block';
+   }
+}
+
 function mostrarPlatos() {
    for (let i = 0; i < arrayPlatos.length; i++) {
       $("#plato").append(mostrarPlato(i));
@@ -81,20 +96,6 @@ function mostrarPlato(i) {
     `
 }
 
-function mostrarSeccion(s) {
-   if (s == "platos") {
-      mostrarPlatos();
-   }
-   let allSections = document.getElementsByTagName('section');
-   for (let i = 0; i < allSections.length; i++) {
-      allSections[i].style.display = 'none';
-
-   }
-   let section = document.getElementsByClassName(s);
-   for (let i = 0; i < section.length; i++) {
-      section[i].style.display = 'block';
-   }
-}
 
 
 /*
