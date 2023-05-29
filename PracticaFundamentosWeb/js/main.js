@@ -1,4 +1,3 @@
-
 class Plato {
    //Inicialización de las variables antes de llamar al constructor. Se ponen por mayor claridad y mayor parecido a Java
    nombre = '';
@@ -47,18 +46,6 @@ function crearPlato(nom, desc, prec, val, ingr, im) { //('Albóndigas','Las más
 crearPlato('Albondigas', 'Bolas de carne', 15, 10.0, ['Carne de vacuno triturada', 'Huevos', 'Harina', 'Perejil', '3 dientes de ajo', '1 cebolla'], '../PracticaFundamentosWeb/imagenes/Albondigas.jpeg');
 crearPlato('Guisantes con jamon', 'Pelotitas verdes con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], '../PracticaFundamentosWeb/imagenes/Guisantes.jpeg');
 
-function mostrarSeccion(s) {
-   let allSections = document.getElementsByTagName('section');
-   for (let i = 0; i < allSections.length; i++) {
-      allSections[i].style.display = 'none';
-      
-   }
-   let section = document.getElementsByClassName(s);
-   for (let i = 0; i < section.length; i++) {
-      section[i].style.display = 'block';
-   }
-}
-
 function inicializarSecciones() {
    let allSections = document.getElementsByTagName('section');
    for (let i = 0; i < allSections.length; i++) {
@@ -68,33 +55,46 @@ function inicializarSecciones() {
    }
 }
 
-function mostrarPlato(i){
-   $('#noElementsMessage').hide()
-   return
-   `  <div class="card h-100">
 
-           <img class="card-img-top" src=" + ${Plato[i].getImagen()} + " alt="..." />
+function mostrarPlatos() {
+   for (let i = 0; i < arrayPlatos.length; i++) {
+      $("#plato").append(mostrarPlato(i));
+   }
+   $('#plato').show()
+}
+
+function mostrarPlato(i) {
+   $('#noElementsMessage').hide()
+   return `<div>
+           <img src=" ${arrayPlatos[i].getImagen()}  "/>
            <div class="card-body p-4">
                <div class="text-center">
-                   <h5 id="nombrePlato" class="fw-bolder"> + ${Plato[i].getNombre()} </h5>
-                   <div id="precioPlato"> + ${Plato[i].getPrecio()} +</div>
+                   <h5 id="nombrePlato" >  ${arrayPlatos[i].getNombre()} </h5> 
+                   <div id="precioPlato">  ${arrayPlatos[i].getPrecio()} </div>
                </div>
            </div>
-           <!-- Product actions-->
-           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-               <div class="text-center"><a id="boton- + ${i} + class="btn btn-outline-dark mt-auto" href="#">Mas info</a></div>
+          
+           <div>
+               <div class="text-center"><a id="boton- + ${i}" >Mas info</a></div>
            </div>
        </div>
-   `
- }
+    `
+}
 
- function mostrarPlatos(){
-   for (let i = 0; i < Plato.length; i++) {
-       $("#platos").append(mostrarPlato(i));
+function mostrarSeccion(s) {
+   if (s == "platos") {
+      mostrarPlatos();
    }
-   $('#platos').show()
- }
+   let allSections = document.getElementsByTagName('section');
+   for (let i = 0; i < allSections.length; i++) {
+      allSections[i].style.display = 'none';
 
+   }
+   let section = document.getElementsByClassName(s);
+   for (let i = 0; i < section.length; i++) {
+      section[i].style.display = 'block';
+   }
+}
 
 
 /*
