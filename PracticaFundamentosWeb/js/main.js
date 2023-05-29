@@ -43,8 +43,8 @@ function crearPlato(nom, desc, prec, val, ingr, im) { //('Albóndigas','Las más
    posicionPlatoInsertado = (arrayPlatos.push(plato) - 1);
 }
 
-crearPlato('Albondigas', 'Bolas de carne', 15, 10.0, ['Carne de vacuno triturada', 'Huevos', 'Harina', 'Perejil', '3 dientes de ajo', '1 cebolla'], '../PracticaFundamentosWeb/imagenes/Albondigas.jpeg');
-crearPlato('Guisantes con jamon', 'Pelotitas verdes con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], '../PracticaFundamentosWeb/imagenes/Guisantes.jpeg');
+crearPlato('Albondigas', 'Bolas de carne', 15, 10.0, ['Carne de vacuno triturada', 'Huevos', 'Harina', 'Perejil', '3 dientes de ajo', '1 cebolla'], '../imagenes/Albondigas.jpeg');
+crearPlato('Guisantes con jamon', 'Pelotitas verdes con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], '../imagenes/Guisantes.jpeg');
 
 function inicializarSecciones() {
    let allSections = document.getElementsByTagName('section');
@@ -81,7 +81,7 @@ function mostrarPlatos() {
 function mostrarPlato(i) {
    $('#noElementsMessage').hide()
    return `<div>
-           <img src=" ${arrayPlatos[i].getImagen()}  "/>
+           <img class="imres1" src=" ${arrayPlatos[i].getImagen()}  "/>
            <div class="card-body p-4">
                <div class="text-center">
                    <h5 id="nombrePlato" >  ${arrayPlatos[i].getNombre()} </h5> 
@@ -93,6 +93,7 @@ function mostrarPlato(i) {
                <div class="text-center"><a id="boton- + ${i}" >Mas info</a></div>
            </div>
        </div>
+       
     `
 }
 
