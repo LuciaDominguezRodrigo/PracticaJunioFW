@@ -109,6 +109,7 @@
    <!--========================================================== -->
    <!-- PLATOS -->
    <!--========================================================== -->
+   
    <div id="plato"></div>
 
    <div id="info">
@@ -121,42 +122,12 @@
       <p id="botones"></p>
    </div>
 
-   <section id="platos">
-    <div>
-      
-      <div>
-         <label for="nombrePlato"></label>
-      </div>
-    
-      <div>
-         <label id="descripcionPlato"></label>
-      </div>
-
-      <div>
-         <label id="precioPlato"></label>
-      </div>
-
-      <div>
-         <label id="valoracionPlato"></label>
-      </div>
-
-      <div>
-         <label id="ingredientesPlato"></label>
-      </div>
-
-      <div>
-         <label id="imagenPlato"></label>
-      </div>
-    </div>
-   </section>
-   
-  
 
 
    <!--========================================================== -->
    <!-- FORMULARIO -->
    <!--========================================================== -->
-   <section class="page-section" id="anadirPlato">
+   <section class="formulario">
       <div class="container">
           <!-- TITULO PAGINA-->
           <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Plato</h2>
@@ -195,7 +166,7 @@
 
                       <!-- Ingredientes del plato input-->
                       <div class="form-floating mb-3">
-                          <input class="form-control" id="Ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
+                          <input class="form-control" id="ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
                           <label for="message">Ingredientes</label>
                           <p></p>
                           <button class="btn bg-secondary bg-transparent btn-outline-dark" id="addIngrediente">Añadir Ingrediente</button>
@@ -206,8 +177,8 @@
                           <h4><p>Imagen</p></h4>
                           <input id="imagen" type="file" placeholder="(123) 456-7890" data-sb-validations="required" />
                       </div>
-                      <button class="btn btn-primary btn-xl" id="crearNuevoPlato" type="submit">Guardar</button>
-                      <button class="btn btn-primary btn-xl" id="Cancelar" type="submit" onclick="mostarPlatos()">Cancelar</button>
+                      <button class=" guardar btn btn-primary btn-xl" id="crearNuevoPlato" type="submit" onclick="mostrarPlatos()"> Guardar</button>
+                      <button class="btn btn-primary btn-xl" id="Cancelar" type="submit" onclick="mostarPlatos()"> Cancelar</button>
                   </form>
               </div>
           </div>

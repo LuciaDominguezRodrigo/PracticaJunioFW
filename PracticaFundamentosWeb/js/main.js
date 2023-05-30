@@ -88,7 +88,7 @@ function mostrarPlatos() {
     }
     $("#plato").append(`
     <div class=" botones">
-      <a class=" boton" onclick="crearNuevo()">Crear nuevo Plato</a>
+      <a class=" boton" onclick="crearNuevoPlato()">Crear nuevo Plato</a>
     </div>
 
     `) 
@@ -156,6 +156,23 @@ function BorrarPlato(id){
 
   mostrarPlatos()
 }
+
+
+function crearNuevoPlato(){
+    
+   mostrarSeccion('formulario')
+  
+    const nombre = document.getElementById('nombre').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const precio = parseFloat(document.getElementById('precio').value);
+    const valoracion = parseFloat(document.getElementById('valoracion').value);
+    const ingredientes = document.getElementById('Ingrediente').value.split(',');
+    const imagenInput = document.getElementById('imagen');
+    //const imagenURL = URL.createObjectURL(imagenInput.files[0]); // Obtener la URL del archivo seleccionado
+  
+    crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagenInput);
+  }
+
 
 /*
 // Para solo mostrar la pagina principal al comienzo de la ejecución
