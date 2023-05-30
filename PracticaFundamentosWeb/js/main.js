@@ -43,10 +43,11 @@ function crearPlato(nom, desc, prec, val, ingr, im) { //('Albóndigas','Las más
    posicionPlatoInsertado = (arrayPlatos.push(plato) - 1);
 }
 
-crearPlato('Albondigas', 'Bolas de carne', 15, 10.0, ['Carne de vacuno triturada', 'Huevos', 'Harina', 'Perejil', '3 dientes de ajo', '1 cebolla'], '../imagenes/Albondigas.jpeg');
+crearPlato('Albondigas', 'Bolas de carne', 15, 10.0, ['Carne de vacuno triturada ', 'Huevos ', 'Harina ', 'Perejil ', '3 dientes de ajo ', '1 cebolla '], '../imagenes/Albondigas.jpeg');
 crearPlato('Guisantes con jamon', 'Pelotitas verdes con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], '../imagenes/Guisantes.jpeg');
 
 function inicializarSecciones() {
+  $("#info").hide();
    let allSections = document.getElementsByTagName('section');
    for (let i = 0; i < allSections.length; i++) {
       if (allSections[i].className.includes("inicio") == false) {
@@ -57,6 +58,7 @@ function inicializarSecciones() {
 
 
 function mostrarSeccion(s) {
+  $("#plato").html("");
   if (s=="platos"){
     mostrarPlatos();
   }
@@ -72,32 +74,72 @@ function mostrarSeccion(s) {
 }
 
 function mostrarPlatos() {
-   for (let i = 0; i < arrayPlatos.length; i++) {
+  if (arrayPlatos.length==0){
+    $("#plato").html("<div class=noPlatos>No hay Platos </div>");
+  }
+  else{
+    $("#plato").html("");
+    for (let i = 0; i < arrayPlatos.length; i++) {
       $("#plato").append(mostrarPlato(i));
-   }
-   $('#plato').show()
+    } 
+    $('#plato').show()
+  }
 }
 
 function mostrarPlato(i) {
    $('#noElementsMessage').hide()
-   return `<div>
-           <img class="imres1" src=" ${arrayPlatos[i].getImagen()}  "/>
-           <div class="card-body p-4">
-               <div class="text-center">
-                   <h5 id="nombrePlato" >  ${arrayPlatos[i].getNombre()} </h5> 
-                   <div id="precioPlato">  ${arrayPlatos[i].getPrecio()} </div>
-               </div>
-           </div>
+   return `
+    <div class="plato">
+      <img class="imres1" src=" ${arrayPlatos[i].getImagen()}  "/></img>
+          <div class="card-body p-4">
+            <div class="text-center">
+              <h5 id="nombrePlato" >  ${arrayPlatos[i].getNombre()} </h5> 
+                <div id="precioPlato">  ${arrayPlatos[i].getPrecio()}€ </div>
+            </div>
+          </div>
           
-           <div>
-               <div class="text-center"><a id="boton- + ${i}" >Mas info</a></div>
+           <div class="text-center" class="plato button:hover">
+              <button onclick="mostrarInfo(${i})">Mas info</button>
            </div>
-       </div>
+    </div>
        
-    `
+  `
 }
 
+function prueba(id){
+  console.log(id);
+}
 
+function mostrarInfo(id){
+  $('#info').show()
+  $('#plato').hide()
+  $("#name").html(`${arrayPlatos[id].nombre}`)
+  $("#description").html(`${arrayPlatos[id].descripcion}`)
+  $("#price").html(`${arrayPlatos[id].precio}`)    
+  $("#valoration").html(`${arrayPlatos[id].valoracion}`) 
+  $("#ingredients").html(`${arrayPlatos[id].ingredientes}`) 
+  //let content = document.getElementById('ingredients')
+  //content.innerHTML = `<h2></h2>`;
+
+  //for (let j = 0; j < arrayPlatos[id].ingredientes.length; i++) {
+    //content.innerHTML +=`  
+    //<p> ${arrayPlatos[id].ingredientes[j]}</p>  
+    //`;  
+  //}
+      
+  document.getElementById("image").setAttribute("src",arrayPlatos[id].imagen)
+  
+}
+
+function BorrarPlato(id){
+  if (confirm("¿Está seguro de que quiere borrarlo?")) {      
+
+      arrayPlatos.splice(id,1)
+      alert("El plato ha sido eliminado");
+  }
+
+  mostrarPlatos()
+}
 
 /*
 // Para solo mostrar la pagina principal al comienzo de la ejecución
