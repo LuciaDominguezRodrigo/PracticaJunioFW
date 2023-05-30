@@ -140,7 +140,7 @@ function mostrarInfo(id){
   document.getElementById("image").setAttribute("src",arrayPlatos[id].imagen)
   $("#botones").html(`
     <div class=" botones">
-      <a class=" boton" onclick="MostrarLista()">Mostrar Platos</a>
+      <a class=" boton" onclick="mostrarPlatos()">Mostrar Platos</a>
       <a class=" boton" onclick="BorrarPlato(${id})">Borrar Plato</a>
       <a class=" boton" onclick="Modificar(${id})">Modificar Plato</a>
     </div>
