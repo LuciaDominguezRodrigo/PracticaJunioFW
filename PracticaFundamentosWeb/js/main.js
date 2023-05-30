@@ -43,8 +43,10 @@ function crearPlato(nom, desc, prec, val, ingr, im) { //('Albóndigas','Las más
    posicionPlatoInsertado = (arrayPlatos.push(plato) - 1);
 }
 
-crearPlato('Albondigas', 'Bolas de carne', 15, 10.0, ['Carne de vacuno triturada ', 'Huevos ', 'Harina ', 'Perejil ', '3 dientes de ajo ', '1 cebolla '], '../imagenes/Albondigas.jpeg');
-crearPlato('Guisantes con jamon', 'Pelotitas verdes con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], '../imagenes/Guisantes.jpeg');
+crearPlato('Albondigas', 'Deliciosas bolas de carne', 15, 10.0, ['Carne de vacuno triturada ', 'Huevos ', 'Harina ', 'Perejil ', '3 dientes de ajo ', '1 cebolla '], '../imagenes/Albondigas.jpeg');
+crearPlato('Guisantes con jamón', 'Guisantes nacionales con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], '../imagenes/Guisantes.jpeg');
+crearPlato('Paella de marisco', 'Sabrosa paella con marisco fresco', 25, 9.0, ['Arroz bomba', 'marisco fresco', 'sofrito de cebolla y pimineto', 'toque de pimentón'], '../imagenes/Paella.jpeg')
+crearPlato('Cocidito madrileño', 'Tradicional cocido madrileño', 10, 9.5, ['Garbanzos', 'carne', 'chorizo'], '../imagenes/Cocido.jpeg')
 
 function inicializarSecciones() {
   $("#info").hide();
@@ -123,9 +125,9 @@ function mostrarInfo(id){
   $('#plato').hide()
   $("#name").html(`${arrayPlatos[id].nombre}`)
   $("#description").html(`${arrayPlatos[id].descripcion}`)
-  $("#price").html(`${arrayPlatos[id].precio}`)    
-  $("#valoration").html(`${arrayPlatos[id].valoracion}`) 
-  $("#ingredients").html(`${arrayPlatos[id].ingredientes}`) 
+  $("#price").html(`Precio: ${arrayPlatos[id].precio} €`)    
+  $("#valoration").html(`Valoraciones de otros usuarios : ${arrayPlatos[id].valoracion} estrellas`) 
+  $("#ingredients").html(`Ingredientes: ${arrayPlatos[id].ingredientes}`) 
   //let content = document.getElementById('ingredients')
   //content.innerHTML = `<h2></h2>`;
 

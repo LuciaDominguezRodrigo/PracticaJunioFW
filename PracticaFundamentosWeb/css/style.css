@@ -148,3 +148,19 @@ footer {
       color: black;
       cursor: grabbing;
  }
+
+ #info {
+   margin:auto;
+   text-align:center;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: medium;
+   font-weight: 600;
+   padding-top: 5%;
+   padding-bottom: 5%;
+ }
+
+ #name {
+   font-size: 800;
+   font-weight: bold;
+   text-decoration: underline;
+ }
