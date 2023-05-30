@@ -118,7 +118,7 @@ footer {
  
  .plato button:hover {
    /* Estilos para cuando el mouse pasa sobre el botón */
-   background-color: lightgray;
+   background-color: bisque;
    cursor: pointer;
  }
 
@@ -128,4 +128,23 @@ footer {
    font-size: 24px;
    margin-top: 50px;
    margin-bottom: 50px;
+ }
+
+ .botones{
+      border:none;
+      padding: 25px 25px;
+      text-align: center;
+      margin-top: 45px;
+      margin-bottom: 40px;
+      font-style: inherit;
+ }
+
+ .boton{
+      background-color: rgb(224, 193, 146);
+      border-color:black;
+      border-style:double;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: black;
+      cursor: grabbing;
  }

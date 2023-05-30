@@ -74,6 +74,8 @@ function mostrarSeccion(s) {
 }
 
 function mostrarPlatos() {
+  $('#info').hide()
+  $('#plato').show()
   if (arrayPlatos.length==0){
     $("#plato").html("<div class=noPlatos>No hay Platos </div>");
   }
@@ -81,7 +83,13 @@ function mostrarPlatos() {
     $("#plato").html("");
     for (let i = 0; i < arrayPlatos.length; i++) {
       $("#plato").append(mostrarPlato(i));
-    } 
+    }
+    $("#plato").append(`
+    <div class=" botones">
+      <a class=" boton" onclick="crearNuevo()">Crear nuevo Plato</a>
+    </div>
+
+    `) 
     $('#plato').show()
   }
 }
@@ -128,7 +136,13 @@ function mostrarInfo(id){
   //}
       
   document.getElementById("image").setAttribute("src",arrayPlatos[id].imagen)
-  
+  $("#botones").html(`
+    <div class=" botones">
+      <a class=" boton" onclick="MostrarLista()">Mostrar Platos</a>
+      <a class=" boton" onclick="BorrarPlato(${id})">Borrar Plato</a>
+      <a class=" boton" onclick="Modificar(${id})">Modificar Plato</a>
+    </div>
+  `)
 }
 
 function BorrarPlato(id){
