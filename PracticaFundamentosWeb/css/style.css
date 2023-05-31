@@ -164,3 +164,24 @@ footer {
    font-weight: bold;
    text-decoration: underline;
  }
+
+ #addIngrediente{
+   background-color: rgb(224, 193, 146);
+      border-color:black;
+      border-style:double;
+      padding: 5px 8px;
+      border-radius: 5px;
+      color: black;
+      cursor: grabbing;
+ }
+
+ #borrarIngrediente{
+   background-color: rgb(224, 193, 146);
+      border-color:black;
+      border-style:double;
+      padding: 5px 8px;
+      border-radius: 5px;
+      color: black;
+      cursor: grabbing;
+ }
+
