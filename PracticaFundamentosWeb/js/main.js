@@ -224,7 +224,7 @@ function BorrarPlato(id){
 function crearNuevoPlato(){
   $('#plato').hide();
   $('.formulario').show();
-
+  reiniciarAnadirPlato();
 
     let nombre = document.getElementById('nombre').value;
     let descripcion = document.getElementById('descripcion').value;
