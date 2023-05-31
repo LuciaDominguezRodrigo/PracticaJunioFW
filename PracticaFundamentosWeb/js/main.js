@@ -171,7 +171,7 @@ function ModificarPlato(id){
   $("#ingredientes").html("Ingredientes")
   for (let i = 0; i < arrayPlatos[id].ingredientes.length; i++) {
     $("#ingredientes").append(`
-        <input class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${id}, ${i})">Borrar</button></input>
+        <input class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button  onclick="borrarIngrediente(${id}, ${i})">Borrar ingrediente</button></input>
           
           <p></p>
     `)
@@ -222,19 +222,28 @@ function BorrarPlato(id){
   
 
 function crearNuevoPlato(){
-  reiniciarAnadirPlato();
-    mostrarSeccion('formulario');
+  $('#plato').hide();
+  $('.formulario').show();
 
-    const nombre = document.getElementById('nombre').value;
-    const descripcion = document.getElementById('descripcion').value;
-    const precio = parseFloat(document.getElementById('precio').value);
-    const valoracion = parseFloat(document.getElementById('valoracion').value);
-    const ingredientes = document.getElementById('ingrediente').value.strip().split(',');
-    const imagenInput = document.getElementById('imagen');
-    //const imagenURL = URL.createObjectURL(imagenInput.files[0]); // Obtener la URL del archivo seleccionado
+
+    let nombre = document.getElementById('nombre').value;
+    let descripcion = document.getElementById('descripcion').value;
+    let precio = document.getElementById('precio').value;
+    let valoracion = document.getElementById('valoracion').value;
+    let ingredientes = document.getElementById('ingrediente').value;
+    let imagen = document.getElementById('imagen').value;
   
-    crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagenInput);
+    crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen);
+
   }
+ 
+function cancelarPlato(){
+  if (confirm("¿Está seguro de que quiere cancelar?")) {      
+    alert("nuevo plato cancelado");
+    mostrarPlatos()
+}
+
+}
 
   function addIngrediente(id){
 
@@ -306,8 +315,8 @@ function crearNuevoPlato(){
                           <input type="text" class="form-control mb-3" id="imagen"/>
                           <input id="imgenerico" type="file" data-sb-validations="required"/>
                       </div>
-                      <button type="button" class="guardar btn btn-primary btn-xl" id="crearNuevoPlato" onclick="mostrarPlatos()">Guardar</button>
-                      <button type="button" class="btn btn-primary btn-xl" id="Cancelar" onclick="mostrarPlatos()">Cancelar</button>
+                      <button type="button" class="boton" id="crearNuevoPlato" onclick="mostrarPlatos()">Guardar</button>
+                      <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
                   
               </div>
           </div>
