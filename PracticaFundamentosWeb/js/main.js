@@ -170,7 +170,7 @@ function ModificarPlato(id){
   $("#ingredientes").html("Ingredientes")
   for (let i = 0; i < arrayPlatos[id].ingredientes.length; i++) {
     $("#ingredientes").append(`
-        <input class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button>Borrar</button></input>
+        <input class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${i})">Borrar</button></input>
           
           <p></p>
     `)
