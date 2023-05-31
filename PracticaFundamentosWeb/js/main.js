@@ -187,8 +187,6 @@ function guardarPlato(id){
 
 
 
-
-
 //Notifica sobre el borrado de un plato
 function BorrarPlato(id){
   if (confirm("¿Está seguro de que quiere borrarlo?")) {      
@@ -200,8 +198,6 @@ function BorrarPlato(id){
 }
 
   
-}
-
 
 function crearNuevoPlato(){
    mostrarSeccion('formulario');
