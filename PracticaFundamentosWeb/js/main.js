@@ -199,6 +199,9 @@ function BorrarPlato(id){
   mostrarPlatos()
 }
 
+  
+}
+
 
 function crearNuevoPlato(){
    mostrarSeccion('formulario');
