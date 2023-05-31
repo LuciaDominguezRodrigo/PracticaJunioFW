@@ -190,18 +190,19 @@ function guardarPlato(id){
 //Notifica sobre el borrado de un plato
 function BorrarPlato(id){
   if (confirm("¿Está seguro de que quiere borrarlo?")) {      
-
       arrayPlatos.splice(id,1)
       alert("El plato ha sido eliminado");
+      mostrarPlatos()
   }
-  mostrarPlatos()
+  
 }
 
   
 
 function crearNuevoPlato(){
-   mostrarSeccion('formulario');
-  
+  reiniciarAnadirPlato();
+    mostrarSeccion('formulario');
+
     const nombre = document.getElementById('nombre').value;
     const descripcion = document.getElementById('descripcion').value;
     const precio = parseFloat(document.getElementById('precio').value);
@@ -213,6 +214,67 @@ function crearNuevoPlato(){
     crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagenInput);
   }
 
+  function reiniciarAnadirPlato(){
+    $("#add-plato").html(`
+    <section class="formulario">
+      <div class="container">
+         
+          <p></p>
+          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" class="titulo" >Plato</h2>
+          <p></p>
+          
+          <div>
+              <div>
+                     <div class="form-floating mb-3">
+                          <input class="form-control" id="nombre" type="text" placeholder=" " required="Debes escribir un nombre">
+                          <label>Nombre del plato</label>
+                      </div>
+             
+                      <div class="form-floating mb-3">
+                          <textarea class="form-control" id="descripcion" type="text" placeholder=" " style="height: 10rem"></textarea>
+                          <label>Descripcion</label>
+                       </div>
+                     
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="precio" type="number" placeholder=" " />
+                          <label>Precio</label>
+                      </div>
+
+                      
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="valoracion" type="number" placeholder=" " min="0" max="10"  />
+                          <label>Valoracion</label>
+                      </div>
+
+                      
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
+                          <label>Ingredientes</label>
+                          <p></p>
+                          <button id="addIngrediente">Añadir Ingrediente</button>
+                      </div>
+
+                      
+                      <div class="mb-3">
+                          <h4><p>Imagen</p></h4>
+                          <input type="text" class="form-control mb-3" id="imagen"/>
+                          <input id="imgenerico" type="file" data-sb-validations="required"/>
+                      </div>
+                      <button type="button" class="guardar btn btn-primary btn-xl" id="crearNuevoPlato" onclick="mostrarPlatos()">Guardar</button>
+                      <button type="button" class="btn btn-primary btn-xl" id="Cancelar" onclick="mostrarPlatos()">Cancelar</button>
+                  
+              </div>
+          </div>
+      </div>
+  </section>
+    
+    
+    
+    `)
+
+
+
+  }
 
 /*
 // Para solo mostrar la pagina principal al comienzo de la ejecución
