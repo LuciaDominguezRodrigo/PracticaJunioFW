@@ -159,6 +159,7 @@ function mostrarInfo(id){
 
 //Gestiona la modificación de los datos de un plato
 function ModificarPlato(id){
+  
   $('#info').hide();
   $('.formulario').show();
 
@@ -170,19 +171,27 @@ function ModificarPlato(id){
   $("#ingredientes").html("Ingredientes")
   for (let i = 0; i < arrayPlatos[id].ingredientes.length; i++) {
     $("#ingredientes").append(`
-        <input class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${i})">Borrar</button></input>
+        <input class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${id}, ${i})">Borrar</button></input>
           
           <p></p>
     `)
     document.getElementById('ingrediente-' + i).value = arrayPlatos[id].ingredientes[i];
   }
-  $("#ingredientes").append(`
-    <button id="addIngrediente">Añadir Ingrediente</button>
-  `)
-  
+
+  $("#addIngrediente").show() 
+
+  $("#addIngrediente").click(function() {
+    $("#ingredientes").append(`
+        <input class="form-control" id="ingrediente-${arrayPlatos[id].ingredientes.length}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${i})">Borrar</button></input>
+          
+          <p></p>
+    `)   
+      
+})
+
   document.getElementById('imagen').value = arrayPlatos[id].getImagen();
 
-  document.getElementById('crearNuevoPlato').onclick = function() { guardarPlato(id); };
+  document.getElementById('crearNuevoPlato').onclick = function() {guardarPlato(id); };
 }
 
 //Guarda el plato modificado
@@ -227,6 +236,30 @@ function crearNuevoPlato(){
     crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagenInput);
   }
 
+  function addIngrediente(id){
+
+
+  }
+
+  function borrarIngrediente(id, i){
+    if(confirm("¿Está seguro de que quiere borrarlo?")){
+      arrayPlatos[id].ingredientes.splice(i, 1)
+      console.log(arrayPlatos[id].ingredientes)
+      console.log(id)
+      console.log(i)
+      $("#ingredientes").html("Ingredientes")
+      for (let j = 0; j < arrayPlatos[id].ingredientes.length; j++) {
+        $("#ingredientes").append(`
+        <input class="form-control" id="ingrediente-${j}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${id}, ${j})">Borrar</button></input>
+          
+        <p></p>
+      `)
+      document.getElementById('ingrediente-' + j).value = arrayPlatos[id].ingredientes[j];
+    }
+    }
+
+  }
+
   function reiniciarAnadirPlato(){
     $("#add-plato").html(`
     <section class="formulario">
@@ -260,7 +293,7 @@ function crearNuevoPlato(){
                       </div>
 
                       
-                      <div class="form-floating mb-3">
+                      <div id="ingredientes" class="form-floating mb-3">
                           <input class="form-control" id="ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
                           <label>Ingredientes</label>
                           <p></p>
