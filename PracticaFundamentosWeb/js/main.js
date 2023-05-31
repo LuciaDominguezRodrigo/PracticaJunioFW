@@ -35,19 +35,24 @@ class Plato {
    setImagen = imagen => this.imagen = imagen
 }
 
+
 //ARRAY DE OBJETOS DE LA CLASE PLATO
 let arrayPlatos = new Array();
 
 function crearPlato(nom, desc, prec, val, ingr, im) { //('Albóndigas','Las más deliciosas', 8, 4.5, ['romero', 'sal'], 'albondigas.jpg');
    let plato = new Plato(nom, desc, prec, val, ingr, im);
-   posicionPlatoInsertado = (arrayPlatos.push(plato) - 1);
+   pInsertado = (arrayPlatos.push(plato) - 1);
 }
 
+
+//Creación de platos iniciales de la página
 crearPlato('Albondigas', 'Deliciosas bolas de carne', 15, 10.0, ['Carne de vacuno triturada ', 'Huevos ', 'Harina ', 'Perejil ', '3 dientes de ajo ', '1 cebolla '], '../imagenes/Albondigas.jpeg');
 crearPlato('Guisantes con jamón', 'Guisantes nacionales con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes', 'Taquitos de Jamon', 'Surtido de pimientas'], '../imagenes/Guisantes.jpeg');
 crearPlato('Paella de marisco', 'Sabrosa paella con marisco fresco', 25, 9.0, ['Arroz bomba', 'marisco fresco', 'sofrito de cebolla y pimineto', 'toque de pimentón'], '../imagenes/Paella.jpeg')
 crearPlato('Cocidito madrileño', 'Tradicional cocido madrileño', 10, 9.5, ['Garbanzos', 'carne', 'chorizo'], '../imagenes/Cocido.jpeg')
 
+
+//Inicializa las secciones ocultando las demás y mostrando la sección "Inicio"
 function inicializarSecciones() {
   $("#info").hide();
    let allSections = document.getElementsByTagName('section');
@@ -59,6 +64,7 @@ function inicializarSecciones() {
 }
 
 
+//Cuando se pulsa a un botón de la barra de navegación, oculta todo el contenido y solamente muestra la información de la pestaña seleccionada
 function mostrarSeccion(s) {
   $("#plato").html("");
   if (s=="platos"){
@@ -75,7 +81,10 @@ function mostrarSeccion(s) {
    }
 }
 
+
+//Muestra los platos en el menú "Nuestra carta"
 function mostrarPlatos() {
+  $('.formulario').hide();
   $('#info').hide()
   $('#plato').show()
   if (arrayPlatos.length==0){
@@ -96,6 +105,8 @@ function mostrarPlatos() {
   }
 }
 
+
+//Mueestra la estructura del plato dentro del menú "Nuestra carta"
 function mostrarPlato(i) {
    $('#noElementsMessage').hide()
    return `
@@ -116,10 +127,8 @@ function mostrarPlato(i) {
   `
 }
 
-function prueba(id){
-  console.log(id);
-}
 
+//Muestra la información detallada de un plato al pulsar el botón "Mas info" de un plato
 function mostrarInfo(id){
   $('#info').show()
   $('#plato').hide()
@@ -136,37 +145,69 @@ function mostrarInfo(id){
     //<p> ${arrayPlatos[id].ingredientes[j]}</p>  
     //`;  
   //}
-      
   document.getElementById("image").setAttribute("src",arrayPlatos[id].imagen)
   $("#botones").html(`
     <div class=" botones">
       <a class=" boton" onclick="mostrarPlatos()">Mostrar Platos</a>
-      <a class=" boton" onclick="BorrarPlato(${id})">Borrar Plato</a>
-      <a class=" boton" onclick="Modificar(${id})">Modificar Plato</a>
+      <a class=" boton" onclick="ModificarPlato(${id})">Modificar Plato</a>
+      <p><br></p>
+      <a class=" boton" onclick="BorrarPlato(${id})">Borrar Plato</a> 
+      
     </div>
   `)
 }
 
+//Gestiona la modificación de los datos de un plato
+function ModificarPlato(id){
+  $('#info').hide();
+  $('.formulario').show();
+
+  document.getElementById('nombre').value = arrayPlatos[id].getNombre();
+  document.getElementById('descripcion').value = arrayPlatos[id].getDescripcion();
+  document.getElementById('precio').value = arrayPlatos[id].getPrecio();
+  document.getElementById('valoracion').value = arrayPlatos[id].getValoracion();
+  document.getElementById('ingrediente').value = arrayPlatos[id].getIngredientes();
+  document.getElementById('imagen').value = arrayPlatos[id].getImagen();
+
+  document.getElementById('crearNuevoPlato').onclick = function() { guardarPlato(id); };
+}
+
+//Guarda el plato modificado
+function guardarPlato(id){
+  arrayPlatos[id].nombre = document.getElementById('nombre').value;
+  arrayPlatos[id].descripcion = document.getElementById('descripcion').value;
+  arrayPlatos[id].precio = document.getElementById('precio').value;
+  arrayPlatos[id].valoracion = document.getElementById('valoracion').value;
+  arrayPlatos[id].ingredientes = document.getElementById('ingrediente').value;
+  arrayPlatos[id].imagen = document.getElementById('imagen').value;
+  
+  $('.formulario').hide();
+  mostrarPlatos();
+}
+
+
+
+
+
+//Notifica sobre el borrado de un plato
 function BorrarPlato(id){
   if (confirm("¿Está seguro de que quiere borrarlo?")) {      
 
       arrayPlatos.splice(id,1)
       alert("El plato ha sido eliminado");
   }
-
   mostrarPlatos()
 }
 
 
 function crearNuevoPlato(){
-    
-   mostrarSeccion('formulario')
+   mostrarSeccion('formulario');
   
     const nombre = document.getElementById('nombre').value;
     const descripcion = document.getElementById('descripcion').value;
     const precio = parseFloat(document.getElementById('precio').value);
     const valoracion = parseFloat(document.getElementById('valoracion').value);
-    const ingredientes = document.getElementById('Ingrediente').value.split(',');
+    const ingredientes = document.getElementById('ingrediente').value.strip().split(',');
     const imagenInput = document.getElementById('imagen');
     //const imagenURL = URL.createObjectURL(imagenInput.files[0]); // Obtener la URL del archivo seleccionado
   

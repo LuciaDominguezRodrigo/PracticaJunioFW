@@ -110,9 +110,9 @@
    <!-- PLATOS -->
    <!--========================================================== -->
    
-   <div id="plato"></div>
+   <div id="plato"></div> <!--Lista de platos-->
 
-   <div id="info">
+   <div id="info"> <!--Información detallada de un plato-->
       <h1 id="name"></h1>
       <p id="description"></p>
       <p id="price"></p>
@@ -173,12 +173,13 @@
                       </div>
 
                       <!--Imagen del plato input-->
-                      <div class="form-floating mb-3">
+                      <div class="mb-3">
                           <h4><p>Imagen</p></h4>
-                          <input id="imagen" type="file" placeholder="(123) 456-7890" data-sb-validations="required" />
+                          <input type="text" class="form-control mb-3" id="imagen"/>
+                          <input id="imgenerico" type="file" data-sb-validations="required"/>
                       </div>
-                      <button class=" guardar btn btn-primary btn-xl" id="crearNuevoPlato" type="submit" onclick="mostrarPlatos()"> Guardar</button>
-                      <button class="btn btn-primary btn-xl" id="Cancelar" type="submit" onclick="mostarPlatos()"> Cancelar</button>
+                      <button type="button" class="guardar btn btn-primary btn-xl" id="crearNuevoPlato" onclick="mostrarPlatos()">Guardar</button>
+                      <button type="button" class="btn btn-primary btn-xl" id="Cancelar" onclick="mostrarPlatos()">Cancelar</button>
                   </form>
               </div>
           </div>
