@@ -166,7 +166,20 @@ function ModificarPlato(id){
   document.getElementById('descripcion').value = arrayPlatos[id].getDescripcion();
   document.getElementById('precio').value = arrayPlatos[id].getPrecio();
   document.getElementById('valoracion').value = arrayPlatos[id].getValoracion();
-  document.getElementById('ingrediente').value = arrayPlatos[id].getIngredientes();
+  
+  $("#ingredientes").html("Ingredientes")
+  for (let i = 0; i < arrayPlatos[id].ingredientes.length; i++) {
+    $("#ingredientes").append(`
+        <input class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button>Borrar</button></input>
+          
+          <p></p>
+    `)
+    document.getElementById('ingrediente-' + i).value = arrayPlatos[id].ingredientes[i];
+  }
+  $("#ingredientes").append(`
+    <button id="addIngrediente">Añadir Ingrediente</button>
+  `)
+  
   document.getElementById('imagen').value = arrayPlatos[id].getImagen();
 
   document.getElementById('crearNuevoPlato').onclick = function() { guardarPlato(id); };
