@@ -116,9 +116,6 @@ function mostrarPlato(i) {
   `
 }
 
-function prueba(id){
-  console.log(id);
-}
 
 function mostrarInfo(id){
   $('#info').show()
@@ -152,9 +149,10 @@ function BorrarPlato(id){
 
       arrayPlatos.splice(id,1)
       alert("El plato ha sido eliminado");
+      mostrarPlatos()
   }
 
-  mostrarPlatos()
+  
 }
 
 
