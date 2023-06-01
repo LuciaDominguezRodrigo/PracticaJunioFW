@@ -228,11 +228,10 @@ function BorrarPlato(id) {
 
 
 function crearNuevoPlato() {
-   //$('#plato').hide();
-   mostrarSeccion("formulario");
-   document.getElementById('guardar').onclick = function () {generarPlato()};
-   //$('.formulario').hide();
-   mostrarPlatos(); 
+    reiniciarAnadirPlato();
+    mostrarSeccion('formulario');
+    $('#guardar').click(generarPlato);
+
  }
  
  
@@ -250,6 +249,7 @@ function generarPlato(){
      let ingrediente = document.getElementById("ingrediente-" + i).value;
      ingredientes.push(ingrediente);
    }*/
+   mostrarPlatos();
  }
 
 function cancelarPlato() {
