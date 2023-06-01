@@ -4,7 +4,7 @@ body {
    overflow-x: hidden;
    background-color: rgb(255, 140, 0);
    position: relative;
-   padding-bottom: 10em; /*Aumentar o disminuir para quitar o añadir distancia del contenido con el footer*/
+   padding-bottom: 15em; /*Aumentar o disminuir para quitar o añadir distancia del contenido con el footer*/
    min-height: 100vh;
 }
 
