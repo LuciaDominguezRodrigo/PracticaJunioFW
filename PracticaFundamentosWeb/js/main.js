@@ -198,7 +198,7 @@ function ModificarPlato(id){
   
     $("#guardado").html(`
     <div class=" botones">
-    <button  class="boton" id="crearNuevoPlato" onclick="guardarPlato(${id}, ${tamaño})">Guardar</button>
+    <button  class="boton" id="crearNuevoPlato" onclick="guardarPlato(${id}, ${tamaño})"> Guardar</button>
     <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
       
     </div>
@@ -346,7 +346,7 @@ function reiniciarAnadirPlato() {
 
                       
                       <div id="ingredientes" class="form-floating mb-3">
-                          <input class="form-control" id="ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${arrayPlatos.length}, i)">Borrar</button></input>
+                          <input class="form-control" id="ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button class ="boton" onclick="borrarIngrediente(${arrayPlatos.length}, i)">Borrar</button></input>
                           <label>Ingredientes</label>
                           <p></p>
                       </div>
