@@ -146,10 +146,10 @@ body {
       background-color: rgb(224, 193, 146);
       border-color:black;
       border-style:double;
-      padding: 10px 20px;
+      padding: 5px 10px;
       border-radius: 5px;
       color: black;
-      cursor: grabbing;
+      cursor: grabbing;;
  }
 
  #info {
@@ -166,16 +166,6 @@ body {
    font-size: 800;
    font-weight: bold;
    text-decoration: underline;
- }
-
- #addIngrediente{
-   background-color: rgb(224, 193, 146);
-      border-color:black;
-      border-style:double;
-      padding: 5px 8px;
-      border-radius: 5px;
-      color: black;
-      cursor: grabbing;
  }
 
  #borrarIngrediente{

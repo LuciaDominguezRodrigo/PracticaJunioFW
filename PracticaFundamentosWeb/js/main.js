@@ -198,7 +198,7 @@ function ModificarPlato(id){
   
     $("#guardado").html(`
     <div class=" botones">
-    <di id="guardar"><button  class="boton" id="crearNuevoPlato" onclick="guardarPlato(${id}, ${tamaño})">Guardar</button></div>
+    <button  class="boton" id="crearNuevoPlato" onclick="guardarPlato(${id}, ${tamaño})">Guardar</button>
     <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
       
     </div>
@@ -210,7 +210,7 @@ function nuevoIngrediente(text, idNumber){
   $("#ingredientes").append(`
       <div id="ingre-${idNumber}" class="white">
         <input placeholder="Añada un ingrediente" value="`+ text + `" class="form-control" id="ingrediente-${idNumber}" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
-        <button  id="bIngre-${idNumber}">Borrar ingrediente</button>
+        <button  class = "boton" id=" bIngre-${idNumber}"> Borrar ingrediente</button>
         <p></p>  
       </div>    
     `);
@@ -297,7 +297,7 @@ function cancelarPlato() {
 function addIngrediente(text, i){
   $("#ingredientes").append(`
       <div id="ingre-${i}>
-        <input value="`+text+`" class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input><button  id="bIngre-${i}">Borrar ingrediente</button>
+        <input value="`+text+`" class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input><button class="boton" id="bIngre-${i}">Borrar ingrediente</button>
         <p></p>  
       </div> 
     `)
