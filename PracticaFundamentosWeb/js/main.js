@@ -159,7 +159,8 @@ function mostrarInfo(id){
 
 //Gestiona la modificación de los datos de un plato
 function ModificarPlato(id){
-  
+  let tamaño=arrayPlatos[id].ingredientes.length;
+  reiniciarAnadirPlato();
   $('#info').hide();
   $('.formulario').show();
 
@@ -170,37 +171,75 @@ function ModificarPlato(id){
   
   $("#ingredientes").html("Ingredientes")
   for (let i = 0; i < arrayPlatos[id].ingredientes.length; i++) {
-    $("#ingredientes").append(`
-        <input class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button  onclick="borrarIngrediente(${id}, ${i})">Borrar ingrediente</button></input>
-          
-          <p></p>
-    `)
-    document.getElementById('ingrediente-' + i).value = arrayPlatos[id].ingredientes[i];
+    nuevoIngrediente(arrayPlatos[id].ingredientes[i], i);
   }
+ 
+  $("#addIngrediente").html(`
+      <button id="aIngre" type="button" class="boton">Añadir Ingrediente</button>   
+  `)  
 
-  $("#addIngrediente").show() 
+  $("#aIngre").click(function(){
+      nuevoIngrediente('', tamaño)
+      console.log(tamaño)
+      tamaño++ 
+      $("#guardar").html(`<button  class="boton" id="crearNuevoPlato" onclick="guardarPlato(${id}, ${tamaño})">Guardar</button>`)
+    }
+  )
 
-  $("#addIngrediente").click(function() {
-    $("#ingredientes").append(`
-        <input class="form-control" id="ingrediente-${arrayPlatos[id].ingredientes.length}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${i})">Borrar</button></input>
-          
-          <p></p>
-    `)   
+  let j = 0
+  $("#bIngre-" + j).click(function(){
+    console.log('W')
+    borrarIngrediente(j)
       
-})
+    }  
+  )
 
   document.getElementById('imagen').value = arrayPlatos[id].getImagen();
+  
+    $("#guardado").html(`
+    <div class=" botones">
+    <di id="guardar"><button  class="boton" id="crearNuevoPlato" onclick="guardarPlato(${id}, ${tamaño})">Guardar</button></div>
+    <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
+      
+    </div>
+    `);
+ 
+}
 
-  document.getElementById('crearNuevoPlato').onclick = function() {guardarPlato(id); };
+function nuevoIngrediente(text, idNumber){
+  $("#ingredientes").append(`
+      <div id="ingre-${idNumber}" class="white">
+        <input placeholder="Añada un ingrediente" value="`+ text + `" class="form-control" id="ingrediente-${idNumber}" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
+        <button  id="bIngre-${idNumber}">Borrar ingrediente</button>
+        <p></p>  
+      </div>    
+    `);
+  
+    $('#bIngre-'+ idNumber).click(function(){
+      if(confirm("¿Está seguro de que quiere borrarlo?") == true){
+        $('#ingre-' + idNumber).remove();
+      }
+    });
 }
 
 //Guarda el plato modificado
-function guardarPlato(id){
+function guardarPlato(id, ingredientes){
+  console.log('T')
+  console.log(id)
+  console.log(ingredientes)
   arrayPlatos[id].nombre = document.getElementById('nombre').value;
   arrayPlatos[id].descripcion = document.getElementById('descripcion').value;
   arrayPlatos[id].precio = document.getElementById('precio').value;
   arrayPlatos[id].valoracion = document.getElementById('valoracion').value;
-  arrayPlatos[id].ingredientes = document.getElementById('ingrediente').value;
+  arrayPlatos[id].ingredientes.splice(0, arrayPlatos[id].ingredientes.length)
+  console.log(arrayPlatos[id].ingredientes)
+  for (let i = 0; i < ingredientes; i++) {
+    let ingrediente = $("#ingrediente-"+i).val();
+    console.log(ingrediente)
+    if(ingrediente){
+      arrayPlatos[id].ingredientes.push(ingrediente);
+    }  
+  }
   arrayPlatos[id].imagen = document.getElementById('imagen').value;
   
   $('.formulario').hide();
@@ -233,7 +272,6 @@ function crearNuevoPlato(){
     let ingredientes = document.getElementById('ingrediente').value;
     let imagen = document.getElementById('imagen').value;
   
-    crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen);
 
   }
  
@@ -245,26 +283,19 @@ function cancelarPlato(){
 
 }
 
-  function addIngrediente(id){
+function addIngrediente(text, i){
+  $("#ingredientes").append(`
+      <div id="ingre-${i}>
+        <input value="`+text+`" class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input><button  id="bIngre-${i}">Borrar ingrediente</button>
+        <p></p>  
+      </div> 
+    `)
 
+}
 
-  }
-
-  function borrarIngrediente(id, i){
+  function borrarIngrediente(i){
     if(confirm("¿Está seguro de que quiere borrarlo?")){
-      arrayPlatos[id].ingredientes.splice(i, 1)
-      console.log(arrayPlatos[id].ingredientes)
-      console.log(id)
-      console.log(i)
-      $("#ingredientes").html("Ingredientes")
-      for (let j = 0; j < arrayPlatos[id].ingredientes.length; j++) {
-        $("#ingredientes").append(`
-        <input class="form-control" id="ingrediente-${j}" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${id}, ${j})">Borrar</button></input>
-          
-        <p></p>
-      `)
-      document.getElementById('ingrediente-' + j).value = arrayPlatos[id].ingredientes[j];
-    }
+      $("#ingre-" + i).remove()
     }
 
   }
@@ -303,21 +334,23 @@ function cancelarPlato(){
 
                       
                       <div id="ingredientes" class="form-floating mb-3">
-                          <input class="form-control" id="ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
+                          <input class="form-control" id="ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button onclick="borrarIngrediente(${arrayPlatos.length}, i)">Borrar</button></input>
                           <label>Ingredientes</label>
                           <p></p>
-                          <button id="addIngrediente">Añadir Ingrediente</button>
                       </div>
-
-                      
+                      <div id="addIngrediente">
+                        <button  class="boton" onclick="addIngrediente(id, i)">Añadir Ingrediente</button>
+                      </div>
+                      <p></p>
                       <div class="mb-3">
                           <h4><p>Imagen</p></h4>
                           <input type="text" class="form-control mb-3" id="imagen"/>
                           <input id="imgenerico" type="file" data-sb-validations="required"/>
-                      </div>
-                      <button type="button" class="boton" id="crearNuevoPlato" onclick="mostrarPlatos()">Guardar</button>
+                      </div >
+                      <div id="guardado">
+                      <button type="button" class="boton" id="crearNuevoPlato" onclick="guardarPlato(id, i)">Guardar</button>
                       <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
-                  
+                      </div>
               </div>
           </div>
       </div>
