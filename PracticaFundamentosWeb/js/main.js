@@ -1,38 +1,38 @@
 class Plato {
-   //Inicialización de las variables antes de llamar al constructor. Se ponen por mayor claridad y mayor parecido a Java
-   nombre = '';
-   descripcion = '';
-   precio = 0;
-   valoracion = 0.0;
-   ingredientes = [];
-   imagen = '';
+  //Inicialización de las variables antes de llamar al constructor. Se ponen por mayor claridad y mayor parecido a Java
+  nombre = '';
+  descripcion = '';
+  precio = 0;
+  valoracion = 0.0;
+  ingredientes = [];
+  imagen = '';
 
-   constructor(nombre, descripcion, precio, valoracion, ingredientes, imagen) {
-      this.nombre = nombre;
-      this.descripcion = descripcion;
-      this.precio = precio;
-      this.valoracion = valoracion;
-      this.ingredientes = ingredientes;
-      this.imagen = imagen; //Hay que revisar cómo se guardan y se cargan las imagenes en los objetos Plato (o bien descargando la imagen y serializando en base64 o bien obteniendo la ruta local o url para descargar la imagen)
-   }
+  constructor(nombre, descripcion, precio, valoracion, ingredientes, imagen) {
+    this.nombre = nombre;
+    this.descripcion = descripcion;
+    this.precio = precio;
+    this.valoracion = valoracion;
+    this.ingredientes = ingredientes;
+    this.imagen = imagen; //Hay que revisar cómo se guardan y se cargan las imagenes en los objetos Plato (o bien descargando la imagen y serializando en base64 o bien obteniendo la ruta local o url para descargar la imagen)
+  }
 
-   getNombre = () => this.nombre
-   setNombre = nombre => this.nombre = nombre
+  getNombre = () => this.nombre
+  setNombre = nombre => this.nombre = nombre
 
-   getDescripcion = () => this.descripcion
-   setDescripcion = descripcion => this.descripcion = descripcion
+  getDescripcion = () => this.descripcion
+  setDescripcion = descripcion => this.descripcion = descripcion
 
-   getPrecio = () => this.precio
-   setPrecio = precio => this.precio = precio
+  getPrecio = () => this.precio
+  setPrecio = precio => this.precio = precio
 
-   getValoracion = () => this.valoracion
-   setValoracion = valoracion => this.valoracion = valoracion
+  getValoracion = () => this.valoracion
+  setValoracion = valoracion => this.valoracion = valoracion
 
-   getIngredientes = () => this.ingredientes
-   setIngredientes = ingredientes => this.ingredientes = ingredientes
+  getIngredientes = () => this.ingredientes
+  setIngredientes = ingredientes => this.ingredientes = ingredientes
 
-   getImagen = () => this.imagen
-   setImagen = imagen => this.imagen = imagen
+  getImagen = () => this.imagen
+  setImagen = imagen => this.imagen = imagen
 }
 
 
@@ -40,8 +40,8 @@ class Plato {
 let arrayPlatos = new Array();
 
 function crearPlato(nom, desc, prec, val, ingr, im) { //('Albóndigas','Las más deliciosas', 8, 4.5, ['romero', 'sal'], 'albondigas.jpg');
-   let plato = new Plato(nom, desc, prec, val, ingr, im);
-   pInsertado = (arrayPlatos.push(plato) - 1);
+  let plato = new Plato(nom, desc, prec, val, ingr, im);
+  pInsertado = (arrayPlatos.push(plato) - 1);
 }
 
 
@@ -55,30 +55,30 @@ crearPlato('Cocidito madrileño', 'Tradicional cocido madrileño', 10, 9.5, ['Ga
 //Inicializa las secciones ocultando las demás y mostrando la sección "Inicio"
 function inicializarSecciones() {
   $("#info").hide();
-   let allSections = document.getElementsByTagName('section');
-   for (let i = 0; i < allSections.length; i++) {
-      if (allSections[i].className.includes("inicio") == false) {
-         allSections[i].style.display = 'none';
-      }
-   }
+  let allSections = document.getElementsByTagName('section');
+  for (let i = 0; i < allSections.length; i++) {
+    if (allSections[i].className.includes("inicio") == false) {
+      allSections[i].style.display = 'none';
+    }
+  }
 }
 
 
 //Cuando se pulsa a un botón de la barra de navegación, oculta todo el contenido y solamente muestra la información de la pestaña seleccionada
 function mostrarSeccion(s) {
   $("#plato").html("");
-  if (s=="platos"){
+  if (s == "platos") {
     mostrarPlatos();
   }
-   let allSections = document.getElementsByTagName('section');
-   for (let i = 0; i < allSections.length; i++) {
-      allSections[i].style.display = 'none';
-      
-   }
-   let section = document.getElementsByClassName(s);
-   for (let i = 0; i < section.length; i++) {
-      section[i].style.display = 'block';
-   }
+  let allSections = document.getElementsByTagName('section');
+  for (let i = 0; i < allSections.length; i++) {
+    allSections[i].style.display = 'none';
+
+  }
+  let section = document.getElementsByClassName(s);
+  for (let i = 0; i < section.length; i++) {
+    section[i].style.display = 'block';
+  }
 }
 
 
@@ -87,10 +87,10 @@ function mostrarPlatos() {
   $('.formulario').hide();
   $('#info').hide()
   $('#plato').show()
-  if (arrayPlatos.length==0){
+  if (arrayPlatos.length == 0) {
     $("#plato").html("<div class=noPlatos>No hay Platos </div>");
   }
-  else{
+  else {
     $("#plato").html("");
     for (let i = 0; i < arrayPlatos.length; i++) {
       $("#plato").append(mostrarPlato(i));
@@ -100,7 +100,7 @@ function mostrarPlatos() {
       <a class=" boton" onclick="crearNuevoPlato()">Crear nuevo Plato</a>
     </div>
 
-    `) 
+    `)
     $('#plato').show()
   }
 }
@@ -108,8 +108,8 @@ function mostrarPlatos() {
 
 //Mueestra la estructura del plato dentro del menú "Nuestra carta"
 function mostrarPlato(i) {
-   $('#noElementsMessage').hide()
-   return `
+  $('#noElementsMessage').hide()
+  return `
     <div class="plato">
       <img class="imres1" src=" ${arrayPlatos[i].getImagen()}  "/></img>
           <div class="card-body p-4">
@@ -129,23 +129,23 @@ function mostrarPlato(i) {
 
 
 //Muestra la información detallada de un plato al pulsar el botón "Mas info" de un plato
-function mostrarInfo(id){
+function mostrarInfo(id) {
   $('#info').show()
   $('#plato').hide()
   $("#name").html(`${arrayPlatos[id].nombre}`)
   $("#description").html(`${arrayPlatos[id].descripcion}`)
-  $("#price").html(`Precio: ${arrayPlatos[id].precio} €`)    
-  $("#valoration").html(`Valoraciones de otros usuarios : ${arrayPlatos[id].valoracion} estrellas`) 
-  $("#ingredients").html(`Ingredientes: ${arrayPlatos[id].ingredientes}`) 
+  $("#price").html(`Precio: ${arrayPlatos[id].precio} €`)
+  $("#valoration").html(`Valoraciones de otros usuarios : ${arrayPlatos[id].valoracion} estrellas`)
+  $("#ingredients").html(`Ingredientes: ${arrayPlatos[id].getIngredientes()}`)
   //let content = document.getElementById('ingredients')
   //content.innerHTML = `<h2></h2>`;
 
   //for (let j = 0; j < arrayPlatos[id].ingredientes.length; i++) {
-    //content.innerHTML +=`  
-    //<p> ${arrayPlatos[id].ingredientes[j]}</p>  
-    //`;  
+  //content.innerHTML +=`  
+  //<p> ${arrayPlatos[id].ingredientes[j]}</p>  
+  //`;  
   //}
-  document.getElementById("image").setAttribute("src",arrayPlatos[id].imagen)
+  document.getElementById("image").setAttribute("src", arrayPlatos[id].imagen)
   $("#botones").html(`
     <div class=" botones">
       <a class=" boton" onclick="mostrarPlatos()">Mostrar Platos</a>
@@ -222,6 +222,7 @@ function nuevoIngrediente(text, idNumber){
     });
 }
 
+
 //Guarda el plato modificado
 function guardarPlato(id, ingredientes){
   console.log('T')
@@ -241,7 +242,7 @@ function guardarPlato(id, ingredientes){
     }  
   }
   arrayPlatos[id].imagen = document.getElementById('imagen').value;
-  
+
   $('.formulario').hide();
   mostrarPlatos();
 }
@@ -249,37 +250,47 @@ function guardarPlato(id, ingredientes){
 
 
 //Notifica sobre el borrado de un plato
-function BorrarPlato(id){
-  if (confirm("¿Está seguro de que quiere borrarlo?")) {      
-      arrayPlatos.splice(id,1)
-      alert("El plato ha sido eliminado");
-      mostrarPlatos()
+function BorrarPlato(id) {
+  if (confirm("¿Está seguro de que quiere borrarlo?")) {
+    arrayPlatos.splice(id, 1)
+    alert("El plato ha sido eliminado");
+    mostrarPlatos()
   }
-  
+
 }
 
-  
 
-function crearNuevoPlato(){
-  $('#plato').hide();
-  $('.formulario').show();
-  reiniciarAnadirPlato();
 
-    let nombre = document.getElementById('nombre').value;
-    let descripcion = document.getElementById('descripcion').value;
-    let precio = document.getElementById('precio').value;
-    let valoracion = document.getElementById('valoracion').value;
-    let ingredientes = document.getElementById('ingrediente').value;
-    let imagen = document.getElementById('imagen').value;
-  
+function crearNuevoPlato() {
+    reiniciarAnadirPlato();
+    mostrarSeccion('formulario');
+    $('#guardar').click(generarPlato);
 
-  }
+ }
  
-function cancelarPlato(){
-  if (confirm("¿Está seguro de que quiere cancelar?")) {      
+ 
+function generarPlato(){
+   let nombre = document.getElementById('nombre').value;
+   let descripcion = document.getElementById('descripcion').value;
+   let precio = document.getElementById('precio').value;
+   let valoracion = document.getElementById('valoracion').value;
+   let ingredientes = [];
+   let imagen = document.getElementById('imagen').value;
+ 
+   crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen);
+ 
+   /*for(let i = 0; i< "numero de ingredientes del plato"; i++){
+     let ingrediente = document.getElementById("ingrediente-" + i).value;
+     ingredientes.push(ingrediente);
+   }*/
+   mostrarPlatos();
+ }
+
+function cancelarPlato() {
+  if (confirm("¿Está seguro de que quiere cancelar?")) {
     alert("nuevo plato cancelado");
     mostrarPlatos()
-}
+  }
 
 }
 
@@ -292,16 +303,17 @@ function addIngrediente(text, i){
     `)
 
 }
+}
 
   function borrarIngrediente(i){
     if(confirm("¿Está seguro de que quiere borrarlo?")){
       $("#ingre-" + i).remove()
     }
 
-  }
+}
 
-  function reiniciarAnadirPlato(){
-    $("#add-plato").html(`
+function reiniciarAnadirPlato() {
+  $("#add-plato").html(`
     <section class="formulario">
       <div class="container">
          
@@ -362,7 +374,7 @@ function addIngrediente(text, i){
 
 
 
-  }
+}
 
 /*
 // Para solo mostrar la pagina principal al comienzo de la ejecución
