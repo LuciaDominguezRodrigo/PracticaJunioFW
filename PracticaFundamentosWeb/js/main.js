@@ -228,20 +228,29 @@ function BorrarPlato(id) {
 
 
 function crearNuevoPlato() {
-  $('#plato').hide();
-  $('.formulario').show();
-  reiniciarAnadirPlato();
-
-  let nombre = document.getElementById('nombre').value;
-  let descripcion = document.getElementById('descripcion').value;
-  let precio = document.getElementById('precio').value;
-  let valoracion = document.getElementById('valoracion').value;
-  let ingredientes = document.getElementById('ingrediente').value;
-  let imagen = document.getElementById('imagen').value;
-
-  crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen);
-
-}
+   //$('#plato').hide();
+   mostrarSeccion("formulario");
+   document.getElementById('guardar').onclick = function () {generarPlato()};
+   //$('.formulario').hide();
+   mostrarPlatos(); 
+ }
+ 
+ 
+function generarPlato(){
+   let nombre = document.getElementById('nombre').value;
+   let descripcion = document.getElementById('descripcion').value;
+   let precio = document.getElementById('precio').value;
+   let valoracion = document.getElementById('valoracion').value;
+   let ingredientes = [];
+   let imagen = document.getElementById('imagen').value;
+ 
+   crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen);
+ 
+   /*for(let i = 0; i< "numero de ingredientes del plato"; i++){
+     let ingrediente = document.getElementById("ingrediente-" + i).value;
+     ingredientes.push(ingrediente);
+   }*/
+ }
 
 function cancelarPlato() {
   if (confirm("¿Está seguro de que quiere cancelar?")) {
@@ -325,7 +334,7 @@ function reiniciarAnadirPlato() {
                           <input type="text" class="form-control mb-3" id="imagen"/>
                           <input id="imgenerico" type="file" data-sb-validations="required"/>
                       </div>
-                      <button type="button" class="boton" id="crearNuevoPlato" onclick="mostrarPlatos()">Guardar</button>
+                      <button type="button" class="boton" id="guardar" onclick="mostrarPlatos()">Guardar</button>
                       <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
                   
               </div>
