@@ -303,12 +303,12 @@ function addIngrediente(text, i){
     `)
 
 }
-}
 
-  function borrarIngrediente(i){
-    if(confirm("¿Está seguro de que quiere borrarlo?")){
-      $("#ingre-" + i).remove()
-    }
+
+function borrarIngrediente(i){
+  if(confirm("¿Está seguro de que quiere borrarlo?")){
+    $("#ingre-" + i).remove()
+  }
 
 }
 
