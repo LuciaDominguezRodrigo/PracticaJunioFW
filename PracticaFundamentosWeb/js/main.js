@@ -174,9 +174,6 @@ function ModificarPlato(id){
     nuevoIngrediente(arrayPlatos[id].ingredientes[i], i);
   }
  
-  $("#addIngrediente").html(`
-      <button id="aIngre" type="button" class="boton">Añadir Ingrediente</button>   
-  `)  
 
   $("#aIngre").click(function(){
       nuevoIngrediente('', tamaño)
@@ -198,8 +195,8 @@ function ModificarPlato(id){
   
     $("#guardado").html(`
     <div class=" botones">
-    <button  class="boton" id="crearNuevoPlato" onclick="guardarPlato(${id}, ${tamaño})"> Guardar</button>
-    <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
+    <div id="guardar"><button  class="boton" id="crearNuevoPlato" onclick="guardarPlato(${id}, ${tamaño})"> Guardar</button></div>
+    <button type="button" class="boton" id="Cancelar" onclick="cancelarModificar()">Cancelar</button>
       
     </div>
     `);
@@ -210,7 +207,7 @@ function nuevoIngrediente(text, idNumber){
   $("#ingredientes").append(`
       <div id="ingre-${idNumber}" class="white">
         <input placeholder="Añada un ingrediente" value="`+ text + `" class="form-control" id="ingrediente-${idNumber}" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
-        <button  class = "boton" id=" bIngre-${idNumber}"> Borrar ingrediente</button>
+        <button id="bIngre-${idNumber}"> Borrar ingrediente</button>
         <p></p>  
       </div>    
     `);
@@ -262,33 +259,65 @@ function BorrarPlato(id) {
 
 
 function crearNuevoPlato() {
+    let tamaño=1;
     reiniciarAnadirPlato();
     mostrarSeccion('formulario');
-    $('#guardar').click(generarPlato);
+    $("#ingredientes").html("Ingredientes")
+    
+    nuevoIngrediente('', 0);
+    
+    $("#aIngre").click(function(){
+      nuevoIngrediente('', tamaño)
+      console.log(tamaño)
+      tamaño++ 
+      $("#guardar").html(`<button  class="boton" id="crearNuevoPlato" onclick="generarPlato(${tamaño})">Guardar</button>`)
+    }
+  )
 
  }
  
  
-function generarPlato(){
+function generarPlato(numIngredientes){
+  
    let nombre = document.getElementById('nombre').value;
-   let descripcion = document.getElementById('descripcion').value;
-   let precio = document.getElementById('precio').value;
-   let valoracion = document.getElementById('valoracion').value;
-   let ingredientes = [];
-   let imagen = document.getElementById('imagen').value;
- 
-   crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen);
- 
-   /*for(let i = 0; i< "numero de ingredientes del plato"; i++){
-     let ingrediente = document.getElementById("ingrediente-" + i).value;
-     ingredientes.push(ingrediente);
-   }*/
-   mostrarPlatos();
+   if(nombre){
+    let descripcion = document.getElementById('descripcion').value;
+    let precio = document.getElementById('precio').value;
+    let valoracion = document.getElementById('valoracion').value;
+    let ingredientes = [];
+    for (let i = 0; i < numIngredientes; i++) {
+      let ingrediente = $("#ingrediente-"+i).val();
+      if(ingrediente){
+        ingredientes.push(ingrediente);
+      }  
+    }
+    let imagen = document.getElementById('imgenerico').value;
+    imagen = '../imagenes/' + imagen
+
+    crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen);
+
+    /*for(let i = 0; i< "numero de ingredientes del plato"; i++){
+      let ingrediente = document.getElementById("ingrediente-" + i).value;
+      ingredientes.push(ingrediente);
+    }*/
+    mostrarPlatos();
+  }
+  else{
+    alert("No se puede crear un plato sin un nombre");
+  }
  }
 
 function cancelarPlato() {
   if (confirm("¿Está seguro de que quiere cancelar?")) {
     alert("nuevo plato cancelado");
+    mostrarPlatos()
+  }
+
+}
+
+function cancelarModificar() {
+  if (confirm("¿Está seguro de que quiere cancelar?")) {
+    alert("La modificacion se ha cancelado");
     mostrarPlatos()
   }
 
@@ -351,7 +380,7 @@ function reiniciarAnadirPlato() {
                           <p></p>
                       </div>
                       <div id="addIngrediente">
-                        <button  class="boton" onclick="addIngrediente(id, i)">Añadir Ingrediente</button>
+                        <button  class="boton" id="aIngre">Añadir Ingrediente</button>
                       </div>
                       <p></p>
                       <div class="mb-3">
@@ -360,7 +389,7 @@ function reiniciarAnadirPlato() {
                           <input id="imgenerico" type="file" data-sb-validations="required"/>
                       </div >
                       <div id="guardado">
-                      <button type="button" class="boton" id="crearNuevoPlato" onclick="generarPlato()">Guardar</button>
+                      <div id="guardar"><button type="button" class="boton" id="crearNuevoPlato" onclick="generarPlato()">Guardar</button></div>
                       <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
                       </div>
               </div>
