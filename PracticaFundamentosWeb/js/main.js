@@ -360,7 +360,7 @@ function reiniciarAnadirPlato() {
                           <input id="imgenerico" type="file" data-sb-validations="required"/>
                       </div >
                       <div id="guardado">
-                      <button type="button" class="boton" id="crearNuevoPlato" onclick="guardarPlato(id, i)">Guardar</button>
+                      <button type="button" class="boton" id="crearNuevoPlato" onclick="generarPlato()">Guardar</button>
                       <button type="button" class="boton" id="Cancelar" onclick="cancelarPlato()">Cancelar</button>
                       </div>
               </div>
