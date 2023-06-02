@@ -95,14 +95,14 @@ function mostrarPlatos() {
     for (let i = 0; i < arrayPlatos.length; i++) {
       $("#plato").append(mostrarPlato(i));
     }
-    $("#plato").append(`
+  }
+  $("#plato").append(`
     <div class=" botones">
       <a class=" boton" onclick="crearNuevoPlato()">Crear nuevo Plato</a>
     </div>
 
     `)
     $('#plato').show()
-  }
 }
 
 
