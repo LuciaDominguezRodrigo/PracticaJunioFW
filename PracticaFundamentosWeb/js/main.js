@@ -199,7 +199,7 @@ function ModificarPlato(id){
     <input id="imgenerico" type="file" data-sb-validations="required" onclick="quitarRuta()"/>
   </div >
   `)
-  
+
   document.getElementById('imagen').value = arrayPlatos[id].getImagen();
   
     $("#guardado").html(`
@@ -243,32 +243,37 @@ function guardarPlato(id, ingredientes){
   console.log('T')
   console.log(id)
   console.log(ingredientes)
-  arrayPlatos[id].nombre = document.getElementById('nombre').value;
-  arrayPlatos[id].descripcion = document.getElementById('descripcion').value;
-  arrayPlatos[id].precio = document.getElementById('precio').value;
-  arrayPlatos[id].valoracion = document.getElementById('valoracion').value;
-  arrayPlatos[id].ingredientes.splice(0, arrayPlatos[id].ingredientes.length)
-  console.log(arrayPlatos[id].ingredientes)
-  for (let i = 0; i < ingredientes; i++) {
-    let ingrediente = $("#ingrediente-"+i).val();
-    console.log(ingrediente)
-    if(ingrediente){
-      arrayPlatos[id].ingredientes.push(ingrediente);
-    }  
+  if(!document.getElementById('nombre').value){
+    alert("No puedes quitarle el nombre")
   }
-  let imagen = document.getElementById('imgenerico').value;
-  console.log(imagen)
-  let nombreArchivo = "";
-  if (imagen) {
-    
-    nombreArchivo = imagen.substring(imagen.lastIndexOf('\\') + 1);
-    console.log(nombreArchivo); // Imprime el nombre del archivo en la consola
-    nombreArchivo = '../imagenes/' + nombreArchivo
-    console.log(nombreArchivo);
-  }
+  else{
+    arrayPlatos[id].nombre = document.getElementById('nombre').value;
+    arrayPlatos[id].descripcion = document.getElementById('descripcion').value;
+    arrayPlatos[id].precio = document.getElementById('precio').value;
+    arrayPlatos[id].valoracion = document.getElementById('valoracion').value;
+    arrayPlatos[id].ingredientes.splice(0, arrayPlatos[id].ingredientes.length)
+    console.log(arrayPlatos[id].ingredientes)
+    for (let i = 0; i < ingredientes; i++) {
+      let ingrediente = $("#ingrediente-"+i).val();
+      console.log(ingrediente)
+      if(ingrediente){
+        arrayPlatos[id].ingredientes.push(ingrediente);
+      }  
+    }
+    let imagen = document.getElementById('imgenerico').value;
+    console.log(imagen)
+    let nombreArchivo = "";
+    if (imagen) {
+      
+      nombreArchivo = imagen.substring(imagen.lastIndexOf('\\') + 1);
+      console.log(nombreArchivo); // Imprime el nombre del archivo en la consola
+      nombreArchivo = '../imagenes/' + nombreArchivo
+      console.log(nombreArchivo);
+    }
 
-  $('.formulario').hide();
-  mostrarPlatos();
+    $('.formulario').hide();
+    mostrarPlatos();
+  }
 }
 
 
@@ -310,7 +315,9 @@ function generarPlato(numIngredientes){
    if(nombre){
     let descripcion = document.getElementById('descripcion').value;
     let precio = document.getElementById('precio').value;
+    if(!precio){precio="?? "}
     let valoracion = document.getElementById('valoracion').value;
+    if(!valoracion){valoracion="?? "}
     let ingredientes = [];
     for (let i = 0; i < numIngredientes; i++) {
       let ingrediente = $("#ingrediente-"+i).val();
