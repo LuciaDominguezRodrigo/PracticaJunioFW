@@ -192,7 +192,14 @@ function ModificarPlato(id){
       
     }  
   )
-
+  $("#Imag").html(`
+  <div class="mb-3" id="Imag">
+    <h4><p>Imagen</p></h4>
+    <input type="text" class="form-control mb-3" id="imagen"/>
+    <input id="imgenerico" type="file" data-sb-validations="required" onclick="quitarRuta()"/>
+  </div >
+  `)
+  
   document.getElementById('imagen').value = arrayPlatos[id].getImagen();
   
     $("#guardado").html(`
@@ -203,6 +210,15 @@ function ModificarPlato(id){
     </div>
     `);
  
+}
+
+function quitarRuta(){
+  $("#Imag").html(`
+  <div class="mb-3" id="Imag">
+    <h4><p>Imagen</p></h4>
+    <input id="imgenerico" type="file" data-sb-validations="required"/>
+  </div >
+  `)
 }
 
 function nuevoIngrediente(text, idNumber){
@@ -240,7 +256,16 @@ function guardarPlato(id, ingredientes){
       arrayPlatos[id].ingredientes.push(ingrediente);
     }  
   }
-  arrayPlatos[id].imagen = document.getElementById('imagen').value;
+  let imagen = document.getElementById('imgenerico').value;
+  console.log(imagen)
+  let nombreArchivo = "";
+  if (imagen) {
+    
+    nombreArchivo = imagen.substring(imagen.lastIndexOf('\\') + 1);
+    console.log(nombreArchivo); // Imprime el nombre del archivo en la consola
+    nombreArchivo = '../imagenes/' + nombreArchivo
+    console.log(nombreArchivo);
+  }
 
   $('.formulario').hide();
   mostrarPlatos();
@@ -343,7 +368,6 @@ function addIngrediente(text, i){
 
 }
 
-
 function borrarIngrediente(i){
   if(confirm("¿Está seguro de que quiere borrarlo?")){
     $("#ingre-" + i).remove()
@@ -393,9 +417,8 @@ function reiniciarAnadirPlato() {
                         <button  class="boton" id="aIngre">Añadir Ingrediente</button>
                       </div>
                       <p></p>
-                      <div class="mb-3">
+                      <div class="mb-3" id="Imag">
                           <h4><p>Imagen</p></h4>
-                          <input type="text" class="form-control mb-3" id="imagen"/>
                           <input id="imgenerico" type="file" data-sb-validations="required"/>
                       </div >
                       <div id="guardado">
