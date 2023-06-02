@@ -40,6 +40,8 @@ class Plato {
 let arrayPlatos = new Array();
 
 function crearPlato(nom, desc, prec, val, ingr, im) { //('Albóndigas','Las más deliciosas', 8, 4.5, ['romero', 'sal'], 'albondigas.jpg');
+  console.log(im)
+  console.log(nom)
   let plato = new Plato(nom, desc, prec, val, ingr, im);
   pInsertado = (arrayPlatos.push(plato) - 1);
 }
@@ -292,9 +294,17 @@ function generarPlato(numIngredientes){
       }  
     }
     let imagen = document.getElementById('imgenerico').value;
-    imagen = '../imagenes/' + imagen
+    console.log(imagen)
+    let nombreArchivo = "";
+    if (imagen) {
+      
+      nombreArchivo = imagen.substring(imagen.lastIndexOf('\\') + 1);
+      console.log(nombreArchivo); // Imprime el nombre del archivo en la consola
+      nombreArchivo = '../imagenes/' + nombreArchivo
+      console.log(nombreArchivo);
+    }
 
-    crearPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen);
+    crearPlato(nombre, descripcion, precio, valoracion, ingredientes, nombreArchivo);
 
     /*for(let i = 0; i< "numero de ingredientes del plato"; i++){
       let ingrediente = document.getElementById("ingrediente-" + i).value;
