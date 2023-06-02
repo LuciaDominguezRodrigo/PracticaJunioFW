@@ -113,7 +113,7 @@ function mostrarPlato(i) {
   $('#noElementsMessage').hide()
   return `
     <div class="plato">
-      <img class="imres1" src=" ${arrayPlatos[i].getImagen()}  "/></img>
+      <img class="imres1" placeholder=" " src=" ${arrayPlatos[i].getImagen()}  "/></img>
           <div class="card-body p-4">
             <div class="text-center">
               <h5 id="nombrePlato" >  ${arrayPlatos[i].getNombre()} </h5> 
@@ -365,22 +365,6 @@ function cancelarModificar() {
 
 }
 
-function addIngrediente(text, i){
-  $("#ingredientes").append(`
-      <div id="ingre-${i}>
-        <input value="`+text+`" class="form-control" id="ingrediente-${i}" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input><button class="boton" id="bIngre-${i}">Borrar ingrediente</button>
-        <p></p>  
-      </div> 
-    `)
-
-}
-
-function borrarIngrediente(i){
-  if(confirm("¿Está seguro de que quiere borrarlo?")){
-    $("#ingre-" + i).remove()
-  }
-
-}
 
 function reiniciarAnadirPlato() {
   $("#add-plato").html(`
