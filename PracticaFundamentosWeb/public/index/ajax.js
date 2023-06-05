@@ -16,8 +16,8 @@ async function cargarMas() {
         const numeroPlatos = parseInt(tamanioBD); //hacemos que dicha consulta se convierta en un entero, para que podamos compararlo y ejecutar la función
   
      if (numeroPlatos <= from) {
-        changeVisibility(document.getElementById("verMas")); //cuando creemos el indez, al las secciones de cargar más y no elemento se les tendrá que poner dicha ID
-        changeVisibility(document.getElementById("noMasElementos"));
+        cambiarVisibilidad(document.getElementById("verMas")); //cuando creemos el indez, al las secciones de cargar más y no elemento se les tendrá que poner dicha ID
+        cambiarVisibilidad(document.getElementById("noMasElementos"));
         return;
       } else {
   
