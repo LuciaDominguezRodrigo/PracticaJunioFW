@@ -3,6 +3,13 @@ const platos = new Map();
 let id=0;
 
 export class Plato {
+   nombre = '';
+   descripcion = '';
+   precio = 0;
+   valoracion = 0.0;
+   ingredientes = new Map();
+   imagen = '';
+
     constructor (nombre, descripcion, precio, valoracion, ingredientes, imagen) {
        this.nombre = nombre;
        this.descripcion= descripcion;
@@ -61,9 +68,6 @@ export class Plato {
  }
 }
 
-const recipes = new Map();
-let nextId = 0;
-
 // Lista predefinida de platos
 let platosEjemplo = [
     ['Albondigas', 'Deliciosas bolas de carne', 15, 10.0, new Map ([[0,'Carne de vacuno triturada'],[1,'Huevos'],[2,'Harina'],[3,'3 dientes de ajo '],[4,'1 cebolla']]), '../imagenes/Albondigas.jpeg'],
@@ -103,4 +107,40 @@ export function addPlato(plato) {
 
 export function borrarPlato(id){
     platos.delete(id.toString())
+}
+
+export function getPlatos(from, to){
+   let arrayPlatos = new Array()
+   let platosArray = [...platos]
+   for (let i = 0; i < platosArray.length; i++) {
+         arrayPlatos[i] = { 
+           id: platosArray[i][0],
+           nombre: platosArray[i][1].getNombre(),            
+           precio: platosArray[i][1].getPrecio(),
+           image: platosArray[i][1].getImagen(),   
+         };
+   }
+   return arrayPlatos.slice(from, to);
+}
+
+export function getPlato(id){
+   let thisPlato = recipes.get(i.toString())
+
+   let ingredientesMap = thisPlato.getIngredientes()
+   let ingredientesArray = new Array()
+   for (let i = 0; i < ingredientesMap.length; i++) {
+      ingredientesArray[i] = {id:i, ingrediente: ingredientesMap[i][1]}
+   }
+
+   let plato = {
+       id: i.toString(),
+       nombre: thisPlato.getNombre(),
+       descripcion: thisPlato.getDescripcion(),
+       precio: thisPlato.getPrecio(),
+       valoracion: thisPlato.getValoracion(),
+       ingredientes: ingredientesArray,
+       imagen: thisPlato.getImagen()
+   };
+   return plato
+
 }
