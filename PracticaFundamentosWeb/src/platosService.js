@@ -19,53 +19,19 @@ export class Plato {
        this.imagen=imagen;
     }
 
- getNombre () {
-   return this.nombre;
- }
+ getNombre () { return this.nombre;}
+ getDescripcion (){ return this.descripcion;}
+ getPrecio (){ return this.precio;}
+ getValoracion(){ return this.valoracion;}
+ getIngredientes (){ return this.ingredientes;}
+ getImagen () { return this.imagen;}
 
- getDescripcion (){
-    return this.descripcion;
- }
-
- getPrecio (){
-   return this.precio;
- }
-
- getValoracion(){
-   return this.valoracion;
- }
-
- getIngredientes (){
-   return this.ingredientes;
- }
-
- getImagen () {
-    return this.imagen;
- }
-
- setNombre (nombreNuevo) {
-    this.nombre=nombreNuevo;
- }
-
- setDescripcion (descripcionNueva) {
-    this.descripcion = descripcionNueva;
- }
-
- setPrecio (precioNuevo) {
-    this.precio= precioNuevo;
- }
-
- setValoracion (valoracionNueva) {
-    this.valoracion = valoracionNueva;
- }
-
- setIngredientes (nuevosIngredientes) {
-    this.ingredientes = nuevosIngredientes;
- }
-
- setImagen (nuevaImagen) {
-    this.imagen = nuevaImagen;
- }
+ setNombre (nombreNuevo) { this.nombre=nombreNuevo;}
+ setDescripcion (descripcionNueva) { this.descripcion = descripcionNueva;}
+ setPrecio (precioNuevo) {this.precio= precioNuevo;}
+ setValoracion (valoracionNueva) {this.valoracion = valoracionNueva;}
+ setIngredientes (nuevosIngredientes) {this.ingredientes = nuevosIngredientes;}
+ setImagen (nuevaImagen) {this.imagen = nuevaImagen;}
 
  modificar(p2){
    if (this.nombre != p2.getNombre()){
