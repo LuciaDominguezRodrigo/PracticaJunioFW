@@ -3,7 +3,7 @@ import fileUpload from 'express-fileupload';
 import mustacheExpress from 'mustache-express';
 import bodyParser from 'body-parser';
 import { __dirname } from './dirname.js';
-import fruitShopRouter from './casaManoloRouter.js';
+import restaurantRouter from './routerPlatos.js';
 
 const app = express();
 
@@ -17,6 +17,6 @@ app.use(express.static(__dirname + '/../public'));
 
 app.use(fileUpload());
 
-app.use('/', casaManoloRouter);
+app.use('/', restaurantRouter);
 
 app.listen(3000, () => console.log('Listening on port 3000!'));
