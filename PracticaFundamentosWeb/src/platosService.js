@@ -66,6 +66,41 @@ export class Plato {
  setImagen (nuevaImagen) {
     this.imagen = nuevaImagen;
  }
+
+ modificar(p2){
+   if (this.nombre != p2.getNombre()){
+      this.setNombre(p2.getNombre());
+   }
+   if (this.descripcion != p2.getDescripcion()){
+         this.setDescripcion(p2.getDescripcion());
+   }
+   if (this.precio != p2.getPrecio()){
+      this.setPrecio(p2.getPrecio());
+   }
+   if (this.valoracion != p2.getValoracion()){
+      this.setValoracion(p2.getValoracion());
+   }
+  
+  let ingred1 = this.getIngredientes()
+  let ingred2 = p2.getIngredientes()
+
+  for (let i = 0; i < ingred2.length; i++){
+      if(ingred1.length <= i || ingred1[i][1]!=ingred2[i][1]){
+          this.ingredientes.set(i, ingred2[i][1])
+      }
+   } 
+   if (ingred1.length > ingred2.length){
+         for (let i = ingred2.length; i < ingred1.length; i++){
+            this.ingredientes.delete(i)
+         }
+   }
+
+  if (this.imagen != p2.getImagen()){
+   this.setImagen(p2.getImagen());
+}
+  
+}
+
 }
 
 // Lista predefinida de platos
@@ -151,36 +186,3 @@ export function modificarPlato(id, plato){
 
 }
 
-function modificar(p2){
-   if (this.nombre != p2.getNombre()){
-      this.setNombre(p2.getNombre());
-   }
-   if (this.descripcion != p2.getDescripcion()){
-         this.setDescripcion(p2.getDescripcion());
-   }
-   if (this.precio != p2.getPrecio()){
-      this.setPrecio(p2.getPrecio());
-   }
-   if (this.valoracion != p2.getValoracion()){
-      this.setValoracion(p2.getValoracion());
-   }
-  
-  let ingred1 = this.getIngredientes()
-  let ingred2 = p2.getIngredientes()
-
-  for (let i = 0; i < ingred2.length; i++){
-      if(ingred1.length <= i || ingred1[i][1]!=ingred2[i][1]){
-          this.ingredientes.set(i, ingred2[i][1])
-      }
-   } 
-   if (ingred1.length > ingred2.length){
-         for (let i = ingred2.length; i < ingred1.length; i++){
-            this.ingredientes.delete(i)
-         }
-   }
-
-  if (this.imagen != p2.getImagen()){
-   this.setImagen(p2.getImagen());
-}
-  
-}
