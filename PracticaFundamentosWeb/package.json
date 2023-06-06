@@ -5,7 +5,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon src-aplicacionInicial.js"
+    "start": "nodemon src/aplicacionInicial.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,3 +18,4 @@
     "nodemon": "^2.0.22"
   }
 }
+
