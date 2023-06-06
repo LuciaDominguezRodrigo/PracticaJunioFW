@@ -1,7 +1,7 @@
 import { Plato, platos } from './platosService.js';
 
 
-export default function cargarInfo () {
+export default function () {
   let albondigas = new Plato ('Albondigas', 'Deliciosas bolas de carne', 15, 10.0, new Map ([[0,'Carne de vacuno triturada'],[1,'Huevos'],[2,'Harina'],[3,'3 dientes de ajo '],[4,'1 cebolla']]), '../imagenes/Albondigas.jpeg');
   platos.set (albondigas.getNombre(),albondigas);
 

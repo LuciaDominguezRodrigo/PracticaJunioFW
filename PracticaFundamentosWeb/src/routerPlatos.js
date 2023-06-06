@@ -1,6 +1,7 @@
 import express from 'express';
-import * as platosService from './platosService.js';
 import { __dirname } from './dirname.js';
+import * as platosService from './platosService.js';
+
 const router = express.Router();
 
 
@@ -32,7 +33,7 @@ router.get('/search_plato', (req, res) => {
     res.send('{"hasTheFruit":' + hasPlatos + '}');
 });
 
-
+export default router;
 
 
 

@@ -1,4 +1,4 @@
-import platosPredetermiandos from './platosPredetermiandos.js'
+import cargarInfo from './platosPredeterminados.js'
 
 
 export class Plato {
@@ -70,7 +70,7 @@ export class Plato {
 }
 
 export let platos = new Map();
- platosPredetermiandos.cargarInfo();
+   cargarInfo();
 
 export function aniadirPlato(plato){
    platos.set(plato.getNombre(),plato);
