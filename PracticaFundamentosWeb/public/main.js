@@ -1,4 +1,6 @@
-export function cambiarVisibilidad(element) {
+
+
+  function cambiarVisibilidad(element) {
     if (element.style.display === "none") {
       element.style.display = "block";
     } else {
@@ -51,5 +53,6 @@ export function cambiarVisibilidad(element) {
     windowlocation.href=link;
   }
 
+ 
 
   

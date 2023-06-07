@@ -15,8 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/../public'));
 
-app.use(fileUpload());
-
 app.use('/', restaurantRouter);
+
+//app.use(fileUpload());
 
 app.listen(3000, () => console.log('Listening on port 3000!'));

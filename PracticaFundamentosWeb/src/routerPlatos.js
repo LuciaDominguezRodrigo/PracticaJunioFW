@@ -15,7 +15,7 @@ router.get('/fetch_dataBaseSize', (req, res) => {
 router.get('/', (req, res) => {
     const platos = platosService.getRangoPlatos(0, 5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
 
-    res.render('index', {   /*hay que crear el moustcahe de oindez*/
+    res.render('inicio', {   /*hay que crear el moustcahe de oindez*/
         platos: platos
     });
 });  
