@@ -15,6 +15,16 @@ export function cambiarVisibilidad(element) {
      }
   }
 
+
+  function mensajeBorrarTodo (){
+    let link = '/delete_all';
+    let borrar= confirm ("¿quiere borrar todos los platos?");
+
+    if (borrar) {
+     window.location.href = link;
+    }
+ }
+
   function masInfo (nombrePlato) {
       let link = '/masInfo/' + nombrePlato;
       window.location.href = link;

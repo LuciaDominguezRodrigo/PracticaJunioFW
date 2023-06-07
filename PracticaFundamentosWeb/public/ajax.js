@@ -1,5 +1,7 @@
 /*constantes*/
 
+import { cambiarVisibilidad } from "./main";
+
 const platos_carga = 5;  /*será la constante con la que carguemos los platos, en caso de que se quieran 
                            +- platos, sería cambiar la constante y ya está*/
 
@@ -28,4 +30,7 @@ async function cargarMas() {
       contador++; //se incrementa el contador para que la acción se vaya repitiendo hasta que se acaben los platos*/
       } 
 
+      function mensajeBorradp() {
+        cambiarVisibilidad(document.getElementById("noElementos"));
+    }
   }
