@@ -11,7 +11,7 @@ router.get('/fetch_dataBaseSize', (req, res) => {
     res.send('{"tamanioPlatos":"' + platosService.platos.size + '"}');
 });
 
-/*inicializa la página*/
+/*inicializa la página de los platos*/
 router.get('/', (req, res) => {
     const platos = platosService.getRangoPlatos(0, 5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
 
