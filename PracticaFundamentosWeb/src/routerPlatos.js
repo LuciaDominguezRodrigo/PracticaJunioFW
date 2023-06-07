@@ -30,7 +30,7 @@ router.get('/delete/:nombrePlato', (req, res) => {
 router.get('/search_plato', (req, res) => {
     let platoBuscado= req.query.platoBuscado;
     let hasPlatos = platosService.platos.has(platoBuscado);
-    res.send('{"hasTheFruit":' + hasPlatos + '}');
+    res.send('{"tienePlato":' + hasPlatos + '}');
 });
 
 export default router;
