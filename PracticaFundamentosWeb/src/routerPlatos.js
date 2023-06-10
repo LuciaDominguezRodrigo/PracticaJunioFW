@@ -19,7 +19,10 @@ router.get('/', (req, res) => {
         platos: platos
     });
 });  
-
+router.get('/plato', (req, res)=>{
+    console.log("pito")
+    res.render('sobrenosotros');
+} );
 /*borra un plato del mapa*/
 router.get('/delete/:nombrePlato', (req, res) => {
     platosService.borrarPlato(req.params.nombrePlato);
