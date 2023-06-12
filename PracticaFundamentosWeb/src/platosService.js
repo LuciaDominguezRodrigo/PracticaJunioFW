@@ -244,7 +244,7 @@ export function loadSampleData(){
         [1, 'Huevos'],
         [2, 'Sal']
       ]),
-      imagen: '../imagenes/tortilla.jpeg'
+      imagen: '../imagenes/tortilla.jpg'
     });
     
     addPlato({
@@ -366,4 +366,8 @@ export function getPlat(id){                                //funcion para devol
        ingred[i] = ing[i][1];
    }
    return {nombre: plato_id.nombre, descripcion:plato_id.descripcion, precio:plato_id.precio, valoracion:plato_id.valoracion, ingredientes: ingred, imagen: plato_id.imagen, id:id}
+}
+
+export function borrarPlat(id){
+   plat.delete(id)
 }

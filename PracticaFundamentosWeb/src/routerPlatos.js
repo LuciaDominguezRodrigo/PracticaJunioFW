@@ -34,8 +34,8 @@ router.get('/masInfo/:id', (req, res) => {
 });
 
 /*borra un plato del mapa*/
-router.get('/delete/:nombrePlato', (req, res) => {
-    platosService.borrarPlato(req.params.nombrePlato);
+router.get('/delete/:id', (req, res) => {
+    platosService.borrarPlat(req.params.id);
     res.render('resetURL');
 });
 
