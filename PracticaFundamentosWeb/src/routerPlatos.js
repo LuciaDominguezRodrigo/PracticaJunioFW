@@ -12,17 +12,27 @@ router.get('/fetch_dataBaseSize', (req, res) => {
 });
 
 /*inicializa la página de los platos*/
-router.get('/', (req, res) => {
+router.get('/plato', (req, res) => {
     const platos = platosService.getRangoPlatos(0, 5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
-
-    res.render('inicio', {   /*hay que crear el moustcahe de oindez*/
+    res.render('plato', {   /*hay que crear el moustcahe de oindez*/
         platos: platos
     });
 });  
-router.get('/plato', (req, res)=>{
-    console.log("pito")
+
+router.get('/', (req, res)=>{
+    res.render('inicio');
+} );
+
+router.get('/sobrenosotros', (req, res)=>{
     res.render('sobrenosotros');
 } );
+
+router.get('/masInfo/:id', (req, res) => {                
+    console.log("p");
+    let plato = platosService.getPlato(req.params.id);
+    res.render('masInfo', plato);
+});
+
 /*borra un plato del mapa*/
 router.get('/delete/:nombrePlato', (req, res) => {
     platosService.borrarPlato(req.params.nombrePlato);

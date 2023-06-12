@@ -68,9 +68,14 @@ export class Plato {
 
 
 }
-
-export let platos = new Map();
+   const p = new Map();
+   export let platos = new Map();
    cargarInfo();
+   console.log(platos)
+   for (const [key, value] of platos.entries()) {
+      p.set(key, value);
+   }
+   console.log(p);
 
 export function aniadirPlato(plato){
    platos.set(plato.getNombre(),plato);
@@ -94,9 +99,9 @@ export function getTodosPlatos() {
 
 export function getRangoPlatos(from, to) {
    let numPlatos = [...platos.values()]; //coge los valores que haya en el mapa y los mete en un array
-   numPlatos.reverse(); //dichos valores empiezan de final a principio, por eso pone .reverse()
    if (from !== undefined) { //mienstras no me tenga que devolver todos los elementos...
-       return numPlatos.slice(from, to); //devuelveme los platos que te he pedido
+      console.log(numPlatos)
+      return numPlatos.slice(from, to); //devuelveme los platos que te he pedido
    } else {
        return numPlatos; //devuélveme todos los platos que tengas
    }
