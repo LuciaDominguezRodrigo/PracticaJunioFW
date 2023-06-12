@@ -13,7 +13,7 @@ router.get('/fetch_dataBaseSize', (req, res) => {
 
 /*inicializa la página de los platos*/
 router.get('/plato', (req, res) => {
-    const platos = platosService.getRangoPlatos(0, 5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
+    const platos = platosService.getRangoPlato(0, 5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
     res.render('plato', {   /*hay que crear el moustcahe de oindez*/
         platos: platos
     });
@@ -29,7 +29,7 @@ router.get('/sobrenosotros', (req, res)=>{
 
 router.get('/masInfo/:id', (req, res) => {                
     console.log("p");
-    let plato = platosService.getPlato(req.params.id);
+    let plato = platosService.getPlat(req.params.id);
     res.render('masInfo', plato);
 });
 
