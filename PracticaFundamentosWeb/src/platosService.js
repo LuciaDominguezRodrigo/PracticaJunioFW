@@ -73,11 +73,11 @@ export class Plato {
    const p = new Map();
    export let platos = new Map();
    cargarInfo();
-   console.log(platos)
+   
    for (const [key, value] of platos.entries()) {
       p.set(key, value);
    }
-   console.log(p);
+   
 
 export function aniadirPlato(plato){
    platos.set(plato.getNombre(),plato);
@@ -340,7 +340,7 @@ export function addPlato(plato) {                             //funcion para añ
    let id = nextId++;
    plato.id = id.toString();
    plat.set(plato.id, plato);
-   console.log(plato)
+   
 }
 
 loadSampleData();

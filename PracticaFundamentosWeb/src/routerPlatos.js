@@ -4,7 +4,7 @@ import * as platosService from './platosService.js';
 
 const router = express.Router();
 
-
+let contador=5;
 /*manda al AJAX el tamaño del mapa de platos*/
 
 router.get('/fetch_dataBaseSize', (req, res) => {
@@ -14,6 +14,7 @@ router.get('/fetch_dataBaseSize', (req, res) => {
 /*inicializa la página de los platos*/
 router.get('/plato', (req, res) => {
     const platos = platosService.getRangoPlato(0, 5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
+    contador=5;
     res.render('plato', {   /*hay que crear el moustcahe de oindez*/
         platos: platos
     });
@@ -45,6 +46,16 @@ router.get('/search_plato', (req, res) => {
     let hasPlatos = platosService.platos.has(platoBuscado);
     res.send('{"tienePlato":' + hasPlatos + '}');
 });
+
+router.get('/nuevosPlatos', (req, res) => {
+    const platos = platosService.getRangoPlato(contador, contador+5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
+    contador +=5;
+    console.log(platos)
+    console.log(contador);
+    res.render('nuevosPlatos', {   /*hay que crear el moustcahe de oindez*/
+        platos: platos
+    });
+});  
 
 export default router;
 

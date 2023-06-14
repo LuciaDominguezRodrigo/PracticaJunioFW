@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cinco platos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+        {{#platos}}
+        <div class="plato" id="estructuraPlatos">
+          <img class="imres1" placeholder=" " src={{imagen}}  "/></img>
+              <div id = {{nombrePlato}} class="card-body p-4">
+                <div class="text-center">
+                  <h5 class="nombrePlato" >  {{nombre}} </h5> 
+                    <div id="precioPlato">  {{precio}}€ </div>
+                </div>
+              </div>
+          
+              <div class="text-center" class="plato button:hover">
+                  <button><a href="masInfo/{{id}}" class="nav-link">Mas info</a></button>
+              </div>    
+        </div>
+    {{/platos}} 
+	        
+
+</body>
+</html>
