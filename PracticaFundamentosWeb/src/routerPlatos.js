@@ -40,6 +40,10 @@ router.get('/delete/:id', (req, res) => {
     res.render('resetURL');
 });
 
+router.get('/formulario', (req, res)=>{
+    res.render('formulario');
+} );
+
 /*busca un plato en el mapa de platos creados*/
 router.get('/search_plato', (req, res) => {
     let platoBuscado= req.query.platoBuscado;

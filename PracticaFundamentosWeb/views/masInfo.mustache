@@ -51,7 +51,7 @@
       <h1>{{nombre}}</h1>
       <p id="description">{{descripcion}}</p>
       <p id="price">{{precio}}€</p>
-      <p id="valoration">{{valoracion}}</p>
+      <p id="valoration">Valoracion: {{valoracion}}</p>
       <p id="ingredients">{{ingredientes}}</p>
       <div><img id="image" alt="..." class="imres1" src="{{imagen}}"/></div>
       <p id="botones"></p>
@@ -59,10 +59,10 @@
        
 
     <div class=" botones">
-      <a  class=" boton" onclick="">Mostrar Platos</a>
+      <a href="/plato" class=" boton" onclick="">Mostrar Platos</a>
       <a class=" boton" onclick="ModificarPlato(${id})">Modificar Plato</a>
       <p><br></p>
-      <a href="/delete/{{id}}" class=" boton" onclick="return confirm("¿Está seguro de que quiere borrarlo?")">Borrar Plato</a> 
+      <a href="/delete/{{id}}" onclick="return confirm('¿Esta seguro de que quiere borrarlo?')"><button class="btn btn-danger">Borrar plato</button></a>
       
     </div>
 
