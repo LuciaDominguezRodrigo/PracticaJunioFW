@@ -1,106 +1,18 @@
-import cargarInfo from './platosPredeterminados.js'
+import { cargarInfo, Plato } from './platosPredeterminados.js'
 
-
-export class Plato {
-   nombre = '';
-   descripcion = '';
-   precio = 0;
-   valoracion = 0.0;
-   ingredientes = new Map();
-   imagen = '';
-   id='';
-
-    constructor (nombre, descripcion, precio, valoracion, ingredientes, imagen, id) {
-       this.nombre = nombre;
-       this.descripcion= descripcion;
-       this.precio= precio;
-       this.valoracion = valoracion;
-       this.ingredientes= ingredientes;
-       this.imagen=imagen;
-       this.id=id;
-    }
-
- getNombre () { return this.nombre;}
- getDescripcion (){ return this.descripcion;}
- getPrecio (){ return this.precio;}
- getValoracion(){ return this.valoracion;}
- getIngredientes (){ return this.ingredientes;}
- getImagen () { return this.imagen;}
-
- setNombre (nombreNuevo) { this.nombre=nombreNuevo;}
- setDescripcion (descripcionNueva) { this.descripcion = descripcionNueva;}
- setPrecio (precioNuevo) {this.precio= precioNuevo;}
- setValoracion (valoracionNueva) {this.valoracion = valoracionNueva;}
- setIngredientes (nuevosIngredientes) {this.ingredientes = nuevosIngredientes;}
- setImagen (nuevaImagen) {this.imagen = nuevaImagen;}
-
- /*modificar(p2){
-   if (this.nombre != p2.getNombre()){
-      this.setNombre(p2.getNombre());
-   }
-   if (this.descripcion != p2.getDescripcion()){
-         this.setDescripcion(p2.getDescripcion());
-   }
-   if (this.precio != p2.getPrecio()){
-      this.setPrecio(p2.getPrecio());
-   }
-   if (this.valoracion != p2.getValoracion()){
-      this.setValoracion(p2.getValoracion());
-   }
-  
-  let ingred1 = this.getIngredientes()
-  let ingred2 = p2.getIngredientes()
-
-  for (let i = 0; i < ingred2.length; i++){
-      if(ingred1.length <= i || ingred1[i][1]!=ingred2[i][1]){
-          this.ingredientes.set(i, ingred2[i][1])
-      }
-   } 
-   if (ingred1.length > ingred2.length){
-         for (let i = ingred2.length; i < ingred1.length; i++){
-            this.ingredientes.delete(i)
-         }
-   }
-
-  if (this.imagen != p2.getImagen()){
-   this.setImagen(p2.getImagen());
-  }
-  
-  }*/
-
-
-}
    const p = new Map();
    export let platos = new Map();
    cargarInfo();
    
-   for (const [key, value] of platos.entries()) {
-      p.set(key, value);
-   }
-   
 
-export function aniadirPlato(plato){
-   platos.set(plato.getNombre(),plato);
-}
+//Funciones con mapa plat
+const plat = new Map();
+export let nextId = 0;
+loadSampleData();
 
-export function borrarPlato(nombrePlato){
-    platos.delete(nombrePlato)
-}
 
-export function borrarTodosPlatos () {
-   platos.clear();
-}
-
-export function getPlato (nombrePlato) {
-   return platos.get(nombrePlato);
-}
-
-export function getTodosPlatos() {
-   return platos.values();
-}
-
-export function getRangoPlatos(from, to) {
-   let numPlatos = [...platos.values()]; //coge los valores que haya en el mapa y los mete en un array
+export function getRangoPlato(from, to) {
+   let numPlatos = [...plat.values()]; //coge los valores que haya en el mapa y los mete en un array
    if (from !== undefined) { //mienstras no me tenga que devolver todos los elementos...
       console.log(numPlatos)
       return numPlatos.slice(from, to); //devuelveme los platos que te he pedido
@@ -109,56 +21,29 @@ export function getRangoPlatos(from, to) {
    }
 }
 
+export function getPlat(id){                                //funcion para devolver la nota pasando por parámetro el id
 
-export function modificarPlato (nuevoPlato) {
-      platos[nuevoPlato.getName()] = nuevoPlato;
-  }
-
-
-/*export function getPlatos(from, to){
-   let arrayPlatos = new Array()
-   let platosArray = [...platos]
-   for (let i = 0; i < platosArray.length; i++) {
-         arrayPlatos[i] = { 
-           id: platosArray[i][0],
-           nombre: platosArray[i][1].getNombre(),            
-           precio: platosArray[i][1].getPrecio(),
-           image: platosArray[i][1].getImagen(),   
-         };
+   let plato_id = plat.get(id);
+   let ingred = new Array();
+   let ing = [...plato_id.ingredientes];
+   
+   for (let i = 0; i < ing.length; i++) {
+      console.log(ing[i][1])
+       ingred[i] = ing[i][1];
    }
-   return arrayPlatos.slice(from, to);
+   return {nombre: plato_id.nombre, descripcion:plato_id.descripcion, precio:plato_id.precio, valoracion:plato_id.valoracion, ingredientes: ingred, imagen: plato_id.imagen, id:id}
 }
 
-export function getPlato(id){
-   let thisPlato = recipes.get(i.toString())
-
-   let ingredientesMap = thisPlato.getIngredientes()
-   let ingredientesArray = new Array()
-   for (let i = 0; i < ingredientesMap.length; i++) {
-      ingredientesArray[i] = {id:i, ingrediente: ingredientesMap[i][1]}
-   }
-
-   let plato = {
-       id: i.toString(),
-       nombre: thisPlato.getNombre(),
-       descripcion: thisPlato.getDescripcion(),
-       precio: thisPlato.getPrecio(),
-       valoracion: thisPlato.getValoracion(),
-       ingredientes: ingredientesArray,
-       imagen: thisPlato.getImagen()
-   };
-   return plato
-
+export function borrarPlat(id){
+   plat.delete(id)
 }
 
-export function modificarPlato(id, plato){
-   let newPlato = new Plato(plato)
-   platos.get(id).modificar(newPlato)
+export function addPlato(plato) {                             //funcion para añadir la nota al mapa junto con el id
+   let id = nextId++;
+   plato.id = id.toString();
+   plat.set(plato.id, plato);
+   
 }
-*/ 
-
-const plat = new Map();
-export let nextId = 0;
 
 export function loadSampleData(){
    addPlato({
@@ -336,38 +221,6 @@ export function loadSampleData(){
     
     }
 
-export function addPlato(plato) {                             //funcion para añadir la nota al mapa junto con el id
-   let id = nextId++;
-   plato.id = id.toString();
-   plat.set(plato.id, plato);
-   
-}
 
-loadSampleData();
 
-export function getRangoPlato(from, to) {
-   let numPlatos = [...plat.values()]; //coge los valores que haya en el mapa y los mete en un array
-   if (from !== undefined) { //mienstras no me tenga que devolver todos los elementos...
-      console.log(numPlatos)
-      return numPlatos.slice(from, to); //devuelveme los platos que te he pedido
-   } else {
-       return numPlatos; //devuélveme todos los platos que tengas
-   }
-}
 
-export function getPlat(id){                                //funcion para devolver la nota pasando por parámetro el id
-
-   let plato_id = plat.get(id);
-   let ingred = new Array();
-   let ing = [...plato_id.ingredientes];
-   
-   for (let i = 0; i < ing.length; i++) {
-      console.log(ing[i][1])
-       ingred[i] = ing[i][1];
-   }
-   return {nombre: plato_id.nombre, descripcion:plato_id.descripcion, precio:plato_id.precio, valoracion:plato_id.valoracion, ingredientes: ingred, imagen: plato_id.imagen, id:id}
-}
-
-export function borrarPlat(id){
-   plat.delete(id)
-}

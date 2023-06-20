@@ -1,7 +1,42 @@
-import { Plato, platos } from './platosService.js';
+import { platos } from './platosService.js';
+
+export class Plato {
+   nombre = '';
+   descripcion = '';
+   precio = 0;
+   valoracion = 0.0;
+   ingredientes = new Map();
+   imagen = '';
+   id='';
+
+    constructor (nombre, descripcion, precio, valoracion, ingredientes, imagen, id) {
+       this.nombre = nombre;
+       this.descripcion= descripcion;
+       this.precio= precio;
+       this.valoracion = valoracion;
+       this.ingredientes= ingredientes;
+       this.imagen=imagen;
+       this.id=id;
+    }
+
+ getNombre () { return this.nombre;}
+ getDescripcion (){ return this.descripcion;}
+ getPrecio (){ return this.precio;}
+ getValoracion(){ return this.valoracion;}
+ getIngredientes (){ return this.ingredientes;}
+ getImagen () { return this.imagen;}
+
+ setNombre (nombreNuevo) { this.nombre=nombreNuevo;}
+ setDescripcion (descripcionNueva) { this.descripcion = descripcionNueva;}
+ setPrecio (precioNuevo) {this.precio= precioNuevo;}
+ setValoracion (valoracionNueva) {this.valoracion = valoracionNueva;}
+ setIngredientes (nuevosIngredientes) {this.ingredientes = nuevosIngredientes;}
+ setImagen (nuevaImagen) {this.imagen = nuevaImagen;}
+
+}
 
 
-export default function () {
+export function cargarInfo () {
   let albondigas = new Plato ('Albondigas', 'Deliciosas bolas de carne', 15, 10.0, new Map ([[0,'Carne de vacuno triturada'],[1,'Huevos'],[2,'Harina'],[3,'3 dientes de ajo '],[4,'1 cebolla']]), '../imagenes/Albondigas.jpeg');
   platos.set (0,albondigas);
 
