@@ -5,17 +5,17 @@ import * as platosService from './platosService.js';
 const router = express.Router();
 
 let contador=5;
-/*manda al AJAX el tamaño del mapa de platos*/
 
+/*manda al AJAX el tamaño del mapa de platos*/
 router.get('/fetch_dataBaseSize', (req, res) => {
     res.send('{"tamanioPlatos":"' + platosService.platos.size + '"}');
 });
 
 /*inicializa la página de los platos*/
-router.get('/plato', (req, res) => {
+router.get('/nuestraCarta', (req, res) => {
     const platos = platosService.getRangoPlato(0, 5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
     contador=5;
-    res.render('plato', {   /*hay que crear el moustcahe de oindez*/
+    res.render('nuestraCarta', {   /*hay que crear el moustcahe de oindez*/
         platos: platos
     });
 });  
@@ -24,8 +24,8 @@ router.get('/', (req, res)=>{
     res.render('inicio');
 } );
 
-router.get('/sobrenosotros', (req, res)=>{
-    res.render('sobrenosotros');
+router.get('/sobreNosotros', (req, res)=>{
+    res.render('sobreNosotros');
 } );
 
 router.get('/masInfo/:id', (req, res) => {                
@@ -37,7 +37,7 @@ router.get('/masInfo/:id', (req, res) => {
 /*borra un plato del mapa*/
 router.get('/delete/:id', (req, res) => {
     platosService.borrarPlat(req.params.id);
-    res.render('resetURL');
+    res.render('platoBorrado');
 });
 
 router.get('/formulario', (req, res)=>{

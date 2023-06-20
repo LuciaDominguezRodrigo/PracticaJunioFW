@@ -8,15 +8,6 @@
     }
   }
 
-  function mensajeBorrar (nombrePlato){
-     let link = '/delete/' + nombrePlato;
-     let borrar= confirm ("¿quiere borrar el plato?");
-
-     if (borrar) {
-      window.location.href = link;
-     }
-  }
-
 
   function mensajeBorrarTodo (){
     let link = '/delete_all';
@@ -48,10 +39,7 @@
     window.location.href=link;
   }
 
-  function cambiarInicio(){
-    let link="inicio.html";
-    windowlocation.href=link;
-  }
+
   function borrarPlato(i){
     if(confirm("¿Está seguro de que quiere borrarlo?")){
       alert("El plato ha sido eliminado");
