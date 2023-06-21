@@ -178,3 +178,28 @@ body {
       cursor: grabbing;
  }
 
+
+ #cargarMas {
+   background-color: rgb(224, 193, 146);
+   color: #ffffff; /* Color del texto */
+   padding: 10px 20px; /* Espaciado interno del botón *//* Sin borde */
+   border-radius: 5px; /* Borde redondeado */
+   cursor: pointer; /* Cursor al pasar el mouse */
+   padding-left: 100xp;
+ }
+ 
+ #cargarMas:hover {
+   background-color: #4c3c04; /* Color de fondo al pasar el mouse */
+ }
+
+ .ctr {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+ }
+ 
+ .ctr button {
+   margin: 0 10px; /* Margen horizontal entre los botones */
+ }
+
