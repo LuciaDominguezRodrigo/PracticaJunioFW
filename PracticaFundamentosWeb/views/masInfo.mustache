@@ -48,12 +48,12 @@
     
 
     <div id="info"> <!--Información detallada de un plato-->
-      <h1>{{plato.getNombre()}}</h1>
-      <p id="description">{{plato.getDescripcion()}}</p>
-      <p id="price">{{plato.getPrecio}}€</p>
-      <p id="valoration">Valoracion: {{plato.getValoracion()}}</p>
-      <p id="ingredients">{{plato.getIngredientes()}}</p>
-      <div><img id="image" alt="..." class="imres1" src="{{plato.getImagen()}}"/></div>
+      <h1>{{plato.nombre}}</h1>
+      <p id="description">{{plato.descripcion}}</p>
+      <p id="price">{{plato.precio}}€</p>
+      <p id="valoration">Valoracion: {{plato.valoracion}}</p>
+      <p id="ingredients">{{plato.ingredientes}}</p>
+      <div><img id="image" alt="..." class="imres1" src="{{plato.imagen}}"/></div>
       <p id="botones"></p>
    </div>
        
@@ -62,7 +62,7 @@
       <a href="/nuestraCarta" class=" boton" onclick="">Mostrar Platos</a>
       <a class=" boton" onclick="ModificarPlato(${id})">Modificar Plato</a>
       <p><br></p>
-      <a href="/delete/{{plato.getId()}}" onclick="return confirm('¿Esta seguro de que quiere borrarlo?')"><button class="btn btn-danger">Borrar plato</button></a>
+      <a href="/delete/{{plato.id}}" onclick="return confirm('¿Esta seguro de que quiere borrarlo?')"><button class="btn btn-danger">Borrar plato</button></a>
       
     </div>
 

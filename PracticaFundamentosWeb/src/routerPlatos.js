@@ -15,7 +15,7 @@ router.get('/fetch_dataBaseSize', (req, res) => {
 router.get('/nuestraCarta', (req, res) => {
     const platos = platosService.getRangoPlato(0, 5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
     contador=5;
-    res.render('nuestraCarta', {   /*hay que crear el moustcahe de oindez*/
+    res.render('nuestraCarta', {  
         platos: platos
     });
 });  
@@ -29,16 +29,24 @@ router.get('/sobreNosotros', (req, res)=>{
 } );
 
 router.get('/masInfo/:id', (req, res) => {                
-    let id = req.params.id;
-    console.log(id);
-    //console.log(platosService.getPlat(2));
+    let id = parseInt(req.params.id);
     let plato = platosService.getPlat(id);
-    res.render('masInfo', plato);
+    const platoData = {
+      nombre: plato.getNombre(),
+      descripcion: plato.getDescripcion(),
+      precio: plato.getPrecio(),
+      valoracion: plato.getValoracion(),
+      ingredientes: plato.getIngredientes(),
+      imagen: plato.getImagen(),
+      id: plato.getId()
+    };
+    res.render('masInfo', {plato: platoData});
 });
 
 /*borra un plato del mapa*/
 router.get('/delete/:id', (req, res) => {
-    platosService.borrarPlat(req.params.id);
+    let id = parseInt(req.params.id);
+    platosService.borrarPlat(id);
     res.render('platoBorrado');
 });
 

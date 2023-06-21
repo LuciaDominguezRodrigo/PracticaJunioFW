@@ -4,35 +4,35 @@ export class Plato {
    descripcion = '';
    precio = 0;
    valoracion = 0.0;
-   ingredientes = new Map();
+   ingredientes = new Array();
    imagen = '';
-   id='';
+   id = 0;
 
-    constructor (nombre, descripcion, precio, valoracion, ingredientes, imagen, id) {
-       this.nombre = nombre;
-       this.descripcion= descripcion;
-       this.precio= precio;
-       this.valoracion = valoracion;
-       this.ingredientes= ingredientes;
-       this.imagen=imagen;
-       this.id=id;
-    }
+   constructor(nombre, descripcion, precio, valoracion, ingredientes, imagen, id) {
+      this.nombre = nombre;
+      this.descripcion = descripcion;
+      this.precio = precio;
+      this.valoracion = valoracion;
+      this.ingredientes = ingredientes;
+      this.imagen = imagen;
+      this.id = id;
+   }
 
- getNombre () { return this.nombre;}
- getDescripcion (){ return this.descripcion;}
- getPrecio (){ return this.precio;}
- getValoracion(){ return this.valoracion;}
- getIngredientes (){ return this.ingredientes;}
- getImagen () { return this.imagen;}
- getId () { return this.id}
+   getNombre() { return this.nombre; }
+   getDescripcion() { return this.descripcion; }
+   getPrecio() { return this.precio; }
+   getValoracion() { return this.valoracion; }
+   getIngredientes() { return this.ingredientes; }
+   getImagen() { return this.imagen; }
+   getId() { return this.id }
 
- setNombre (nombreNuevo) { this.nombre=nombreNuevo;}
- setDescripcion (descripcionNueva) { this.descripcion = descripcionNueva;}
- setPrecio (precioNuevo) {this.precio= precioNuevo;}
- setValoracion (valoracionNueva) {this.valoracion = valoracionNueva;}
- setIngredientes (nuevosIngredientes) {this.ingredientes = nuevosIngredientes;}
- setImagen (nuevaImagen) {this.imagen = nuevaImagen;}
- setId (nuevoId) {this.id = nuevoId;}
+   setNombre(nombreNuevo) { this.nombre = nombreNuevo; }
+   setDescripcion(descripcionNueva) { this.descripcion = descripcionNueva; }
+   setPrecio(precioNuevo) { this.precio = precioNuevo; }
+   setValoracion(valoracionNueva) { this.valoracion = valoracionNueva; }
+   setIngredientes(nuevosIngredientes) { this.ingredientes = nuevosIngredientes; }
+   setImagen(nuevaImagen) { this.imagen = nuevaImagen; }
+   setId(nuevoId) { this.id = nuevoId; }
 
 }
 

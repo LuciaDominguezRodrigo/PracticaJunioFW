@@ -31,9 +31,9 @@ export function borrarPlat(id){
 }
 
 export function addPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen) {                             //funcion para añadir la nota al mapa junto con el id
-   let id = nextId++;
-   let plato = new Plato(nombre, descripcion, precio, valoracion, ingredientes, imagen, id);
-   plat.set(id, plato);
+   let plato = new Plato(nombre, descripcion, precio, valoracion, ingredientes, imagen, nextId);
+   plat.set(nextId, plato);
+   nextId = nextId+1;
 }
 
 export function loadSampleData(){
