@@ -75,7 +75,7 @@ router.get('/formulario', (req, res) => {
    res.render('formulario');
 });
 
-router.post('/guardarPlato', (req, res) => {
+/*router.post('/guardarPlato', (req, res) => {
 
    let nombre = req.body.nombre;
    let desc = req.body.descripcion;
@@ -85,9 +85,7 @@ router.post('/guardarPlato', (req, res) => {
    platosService.addPost({ user, title, text });
 
    res.render('nuestraCarta');
-});
-
-
+});*/
 
 
 

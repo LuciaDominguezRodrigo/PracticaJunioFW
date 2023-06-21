@@ -60,7 +60,7 @@
           <div>
               <form action="/guardarPlato" method="post">
                      <div class="form-floating mb-3">
-                          <input class="form-control" id="nombre" placeholder=" " required="Debes escribir un nombre" type='text' name='nombre'>
+                          <input class="form-control" id="nombre" placeholder=" " type='text' name='nombre'>
                           <label>Nombre del plato</label>
                       </div>
              
@@ -81,22 +81,27 @@
                       </div>
 
                       
-                      <div id="ingredientes" class="form-floating mb-3">
-                          <input class="form-control" id="ingrediente" type="text" placeholder="Enter your message here..." data-sb-validations="required"><button class ="boton" onclick="borrarIngrediente(${arrayPlatos.length}, i)">Borrar</button></input>
-                          <label>Ingredientes</label>
-                          <p></p>
+                      <div id="ingredientes-container" class="form-floating mb-3">
+                           <div id="ingredientes-1" class="form-floating mb-3">
+                              <input class="form-control" id="ingrediente-1" type="text" placeholder="Enter your message here..." data-sb-validations="required">
+                              <button class ="boton" type="button" onclick="borrarIngrediente(${arrayPlatos.length}, i)">Borrar</button>
+                              <label>Ingrediente 1</label>
+                              <p></p>
+                           </div>
                       </div>
-                      <div id="addIngrediente">
-                        <button class="boton" id="aIngre">Añadir Ingrediente</button>
-                      </div>
+
+                     <div id="addIngrediente">
+						<button class="btn btn-secondary" onclick="addIngredienteFormulario()" type="button" id="aIngre">Añadir ingrediente</button>
+                     </div>
                       <p></p>
                       <div class="mb-3" id="Imag">
                           <h4><p>Imagen</p></h4>
                           <input id="imgenerico" type="file" data-sb-validations="required"/>
-                      </div >
+                      </div>
                       <div id="guardado">
-                      <div id="guardar"><input type='submit' value='Guardar plato'></div><p></p>
-                      <button class="btn btn-secondary" onclick="location.href='/nuestraCarta'">Cancelar</button>
+						<div id="guardar"><input type='submit' value='Guardar plato'></div>
+						<p></p>
+						<button class="btn btn-secondary" onclick="location.href='/nuestraCarta'" type="button">Cancelar</button>
                       </div>
               </form>
           </div>
@@ -125,7 +130,7 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script> <!--Enlace JS de Bootstrap 5.3-->
- <script src='../js/main.js'></script> <!--Enlace a archivo JS-->
+ <script src='../main.js'></script> <!--Enlace a archivo JS-->
 
 </body>
 
