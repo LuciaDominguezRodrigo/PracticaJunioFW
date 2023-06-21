@@ -1,225 +1,67 @@
-import { cargarInfo, Plato } from './platosPredeterminados.js'
-
-   const p = new Map();
-   export let platos = new Map();
-   cargarInfo();
+import { Plato } from './platosPredeterminados.js'
    
 
 //Funciones con mapa plat
 const plat = new Map();
 export let nextId = 0;
 loadSampleData();
+let plato_id = plat.get(2);
+//console.log(plato_id);
 
 
 export function getRangoPlato(from, to) {
    let numPlatos = [...plat.values()]; //coge los valores que haya en el mapa y los mete en un array
    if (from !== undefined) { //mienstras no me tenga que devolver todos los elementos...
-      console.log(numPlatos)
+      //console.log(numPlatos)
       return numPlatos.slice(from, to); //devuelveme los platos que te he pedido
    } else {
        return numPlatos; //devuélveme todos los platos que tengas
    }
 }
 
-export function getPlat(id){                                //funcion para devolver la nota pasando por parámetro el id
 
-   let plato_id = plat.get(id);
-   let ingred = new Array();
-   let ing = [...plato_id.ingredientes];
-   
-   for (let i = 0; i < ing.length; i++) {
-      console.log(ing[i][1])
-       ingred[i] = ing[i][1];
-   }
-   return {nombre: plato_id.nombre, descripcion:plato_id.descripcion, precio:plato_id.precio, valoracion:plato_id.valoracion, ingredientes: ingred, imagen: plato_id.imagen, id:id}
+
+export function getPlat(id){  //PROBLEMA: EL ID QUE LE LLEGA DESDE EL ROUTER ES UNDEFINED
+   return plat.get(id);
 }
+
 
 export function borrarPlat(id){
    plat.delete(id)
 }
 
-export function addPlato(plato) {                             //funcion para añadir la nota al mapa junto con el id
+export function addPlato(nombre, descripcion, precio, valoracion, ingredientes, imagen) {                             //funcion para añadir la nota al mapa junto con el id
    let id = nextId++;
-   plato.id = id.toString();
-   plat.set(plato.id, plato);
-   
+   let plato = new Plato(nombre, descripcion, precio, valoracion, ingredientes, imagen, id);
+   plat.set(id, plato);
 }
 
 export function loadSampleData(){
-   addPlato({
-      nombre: 'Albondigas',
-      descripcion: 'Deliciosas bolas de carne',
-      precio: 15,
-      valoracion: 10.0,
-      ingredientes: new Map([
-        [0, 'Carne de vacuno triturada'],
-        [1, 'Huevos'],
-        [2, 'Harina'],
-        [3, '3 dientes de ajo'],
-        [4, '1 cebolla']
-      ]),
-      imagen: '../imagenes/Albondigas.jpeg'
-    });
-    
-    addPlato({
-      nombre: 'Guisantes con jamón',
-      descripcion: 'Guisantes nacionales con delicisos taquitos de jamoncito',
-      precio: 20,
-      valoracion: 9.0,
-      ingredientes: new Map([
-        [0, 'Guisantes'],
-        [1, 'Taquitos de Jamon'],
-        [2, 'Surtido de pimientas']
-      ]),
-      imagen: '../imagenes/Guisantes.jpeg'
-    });
-    
-    addPlato({
-      nombre: 'Paella de marisco',
-      descripcion: 'Sabrosa paella con marisco fresco',
-      precio: 25,
-      valoracion: 9.0,
-      ingredientes: new Map([
-        [0, 'Arroz bomba'],
-        [1, 'marisco fresco'],
-        [2, 'sofrito de cebolla y pimineto'],
-        [3, 'toque de pimentón']
-      ]),
-      imagen: '../imagenes/Paella.jpeg'
-    });
-    
-    addPlato({
-      nombre: 'Cocidito madrileño',
-      descripcion: 'Tradicional cocido madrileño',
-      precio: 10,
-      valoracion: 9.5,
-      ingredientes: new Map([
-        [0, 'Garbanzos'],
-        [1, 'carne'],
-        [2, 'chorizo']
-      ]),
-      imagen: '../imagenes/Cocido.jpeg'
-    });
-    
-    addPlato({
-      nombre: 'Macarrones con chorizo',
-      descripcion: 'Macarrones con chorizo al estilo casero',
-      precio: 8,
-      valoracion: 8.9,
-      ingredientes: new Map([
-        [0, 'Chorizo'],
-        [1, 'Ajo en polvo'],
-        [2, 'Cebolla frita'],
-        [3, 'Comino'],
-        [4, 'Pimentón'],
-        [5, 'Vino blanco'],
-        [6, 'Agua'],
-        [7, 'Macarrones']
-      ]),
-      imagen: '../imagenes/macarrones.jpg'
-    });
-    
-    addPlato({
-      nombre: 'Tortilla de patatas',
-      descripcion: 'La española',
-      precio: 11,
-      valoracion: 7.5,
-      ingredientes: new Map([
-        [0, 'Patatas'],
-        [1, 'Huevos'],
-        [2, 'Sal']
-      ]),
-      imagen: '../imagenes/tortilla.jpg'
-    });
-    
-    addPlato({
-      nombre: 'Pizza',
-      descripcion: 'Mejor que la de Italia',
-      precio: 17,
-      valoracion: 6.0,
-      ingredientes: new Map([
-        [0, 'Harina'],
-        [1, 'Huevos'],
-        [2, 'Salsa de tomate'],
-        [3, 'Carne de bacuno'],
-        [4, 'Bacon']
-      ]),
-      imagen: '../imagenes/pizza.jpg'
-    });
-    
-    addPlato({
-      nombre: 'Lubina',
-      descripcion: 'Al horno y con mucho sabor',
-      precio: 9,
-      valoracion: 7.75,
-      ingredientes: new Map([
-        [0, 'Lubina'],
-        [1, 'Cebolla'],
-        [2, '3 dientes de ajo'],
-        [3, 'Agua'],
-        [4, 'Limon']
-      ]),
-      imagen: '../imagenes/lubina.jpg'
-    });
-    
-    addPlato({
-      nombre: 'Patatas bravas',
-      descripcion: 'Un plato que nunca defrauda',
-      precio: 8,
-      valoracion: 8.0,
-      ingredientes: new Map([
-        [0, 'Patatas'],
-        [1, 'Salsa brava'],
-        [2, 'Toque de sal'],
-        [3, 'Perejil']
-      ]),
-      imagen: '../imagenes/patatasBravas.jpeg'
-    });
-    
-    addPlato({
-      nombre: 'Tarta de Santiago',
-      descripcion: 'Postre gallego por excelencia',
-      precio: 6,
-      valoracion: 5.5,
-      ingredientes: new Map([
-        [0, 'Azucar'],
-        [1, 'Raladura de limon'],
-        [2, 'Almendra picada'],
-        [3, '3 huevos'],
-        [4, '2 cucharadas de mantequilla'],
-        [5, 'harina']
-      ]),
-      imagen: '../imagenes/tartaSantiago.jpeg'
-    });
-    
-    addPlato({
-      nombre: 'Gambas al ajillo',
-      descripcion: 'Puedes elegir cuan picantes te gustan',
-      precio: 13,
-      valoracion: 7.6,
-      ingredientes: new Map([
-        [0, 'Gambas'],
-        [1, 'Guindilla/s'],
-        [2, 'perejil'],
-        [3, '3 dientes de ajo']
-      ]),
-      imagen: '../imagenes/gambasAjillo.jpg'
-    });
-    
-    addPlato({
-      nombre: 'Cafe',
-      descripcion: 'Perfecto para despues de comer',
-      precio: 1,
-      valoracion: 9.5,
-      ingredientes: new Map([
-        [0, 'Cacao'],
-        [1, 'Agua'],
-        [2, 'Azucar']
-      ]),
-      imagen: '../imagenes/cafe.jpg'
-    });
-    
-    }
+   addPlato('Albondigas', 'Deliciosas bolas de carne', 15, 10.0, ['Carne de vacuno triturada','Huevos','Harina','3 dientes de ajo ','1 cebolla'], '../imagenes/Albondigas.jpeg');
+
+   addPlato('Guisantes con jamón', 'Guisantes nacionales con delicisos taquitos de jamoncito', 20, 9.0, ['Guisantes','Taquitos de Jamon','Surtido de pimientas'], '../imagenes/Guisantes.jpeg');
+
+   addPlato('Paella de marisco', 'Sabrosa paella con marisco fresco', 25, 9.0, ['Arroz bomba','marisco fresco','sofrito de cebolla y pimineto','toque de pimentón'], '../imagenes/Paella.jpeg');
+
+   addPlato('Cocidito madrileño', 'Tradicional cocido madrileño', 10, 9.5, ['Garbanzos','carne','chorizo'], '../imagenes/Cocido.jpeg');
+
+   addPlato('Macarrones con chorizo', 'Macarrones con chorizo al estilo casero', 8, 8.9, ['Chorizo','Ajo en polvo','Cebolla frita','Comino','Pimentón','Vino blanco','Agua','Macarrones'], '../imagenes/macarrones.jpg');
+
+   addPlato('Tortilla de patatas', 'La española', 11, 7.5, ['Patatas','Huevos','Sal'], '../imagenes/tortilla.jpg');
+
+   addPlato('Pizza', 'Mejor que la de Italia', 17, 6.0, ['Harina','Huevos','Salsa de tomate','Carne de vacuno','Bacon'], '../imagenes/pizza.jpg');
+
+   addPlato('Lubina', 'Al horno y con mucho sabor', 9, 7.75, ['Lubina','Cebolla','3 dientes de ajo','Agua','Limon'], '../imagenes/lubina.jpg');
+
+   addPlato('Patatas bravas', 'Un plato que nunca defrauda', 8, 8.0, ['Patatas','Salsa brava','Toque de sal','Perejil'], '../imagenes/patatasBravas.jpeg');
+
+   addPlato('Tarta de Santiago', 'Postre gallego por excelencia', 6, 5.5, ['Azucar','Raladura de limon','Almendra picada','3 huevos','2 cucharadas de mantequilla','harina'], '../imagenes/tartaSantiago.jpeg');
+
+   addPlato('Gambas al ajillo', 'Puedes elegir cuan picantes te gustan', 13, 7.6, ['Gambas','Guindillas','perejil','3 dientes de ajo'], '../imagenes/gambasAjillo.jpg');
+
+   addPlato('Cafe', 'Perfecto para despues de comer', 1, 9.5, ['Cacao','Agua','Azucar'], '../imagenes/cafe.jpg');
+
+}
 
 
 

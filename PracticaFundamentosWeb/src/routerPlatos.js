@@ -29,8 +29,10 @@ router.get('/sobreNosotros', (req, res)=>{
 } );
 
 router.get('/masInfo/:id', (req, res) => {                
-    console.log("p");
-    let plato = platosService.getPlat(req.params.id);
+    let id = req.params.id;
+    console.log(id);
+    //console.log(platosService.getPlat(2));
+    let plato = platosService.getPlat(id);
     res.render('masInfo', plato);
 });
 
@@ -40,9 +42,6 @@ router.get('/delete/:id', (req, res) => {
     res.render('platoBorrado');
 });
 
-router.get('/formulario', (req, res)=>{
-    res.render('formulario');
-} );
 
 /*busca un plato en el mapa de platos creados*/
 router.get('/search_plato', (req, res) => {
@@ -54,12 +53,35 @@ router.get('/search_plato', (req, res) => {
 router.get('/nuevosPlatos', (req, res) => {
     const platos = platosService.getRangoPlato(contador, contador+5);  /*muestra los 5 primeros platos, esto influye en el AJAX*/
     contador +=5;
-    console.log(platos)
-    console.log(contador);
+    //console.log(platos)
+    //console.log(contador);
     res.render('nuevosPlatos', {   /*hay que crear el moustcahe de oindez*/
         platos: platos
     });
 });  
+
+
+//Rutas del formulario
+
+router.get('/formulario', (req, res) => {
+   res.render('formulario');
+});
+
+router.post('/guardarPlato', (req, res) => {
+
+   let nombre = req.body.nombre;
+   let desc = req.body.descripcion;
+   let precio = req.body.precio;
+   let valoracion = req.body.valoracion;
+
+   platosService.addPost({ user, title, text });
+
+   res.render('nuestraCarta');
+});
+
+
+
+
 
 export default router;
 

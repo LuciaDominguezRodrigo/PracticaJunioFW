@@ -175,7 +175,7 @@ p3={
 
 
 let arrayPlatos = [p1,p2,p3];
-console.log (arrayPlatos);
+//console.log (arrayPlatos);
 
 
 /*masinfo
@@ -259,7 +259,7 @@ function addArray (){
     'info' : info
   }
   arrayPlatos.push(nuevoplato);
-  console.log (arrayPlatos);
+  //console.log (arrayPlatos);
 }
 
 

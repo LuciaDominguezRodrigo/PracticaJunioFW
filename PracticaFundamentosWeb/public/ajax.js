@@ -16,7 +16,7 @@ async function cargarMas() {
       const response = await fetch(`/nuevosPlatos?from=${from}&to=${to}`); //se "recogen" los nuevos platos del mapa
       const platoNuevo = await response.text();
       const estructuraPlatos = document.getElementById("estructuraPlatos");  //se recoge del index su estructura
-      console.log(estructuraPlatos)
+      //console.log(estructuraPlatos)
       estructuraPlatos.innerHTML += platoNuevo; //los platos nuevos se meten ahí
       contador++; //se incrementa el contador para que la acción se vaya repitiendo hasta que se acaben los platos*/
       } 

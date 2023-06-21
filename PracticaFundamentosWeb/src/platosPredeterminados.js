@@ -1,4 +1,3 @@
-import { platos } from './platosService.js';
 
 export class Plato {
    nombre = '';
@@ -25,6 +24,7 @@ export class Plato {
  getValoracion(){ return this.valoracion;}
  getIngredientes (){ return this.ingredientes;}
  getImagen () { return this.imagen;}
+ getId () { return this.id}
 
  setNombre (nombreNuevo) { this.nombre=nombreNuevo;}
  setDescripcion (descripcionNueva) { this.descripcion = descripcionNueva;}
@@ -32,10 +32,11 @@ export class Plato {
  setValoracion (valoracionNueva) {this.valoracion = valoracionNueva;}
  setIngredientes (nuevosIngredientes) {this.ingredientes = nuevosIngredientes;}
  setImagen (nuevaImagen) {this.imagen = nuevaImagen;}
+ setId (nuevoId) {this.id = nuevoId;}
 
 }
 
-
+/*
 export function cargarInfo () {
   let albondigas = new Plato ('Albondigas', 'Deliciosas bolas de carne', 15, 10.0, new Map ([[0,'Carne de vacuno triturada'],[1,'Huevos'],[2,'Harina'],[3,'3 dientes de ajo '],[4,'1 cebolla']]), '../imagenes/Albondigas.jpeg');
   platos.set (0,albondigas);
@@ -75,3 +76,4 @@ export function cargarInfo () {
   return platos
 
 }
+*/
