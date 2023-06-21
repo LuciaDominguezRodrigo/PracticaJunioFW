@@ -83,7 +83,7 @@
                       
                       <div id="ingredientes-container" class="form-floating mb-3">
                            <div id="ingredientes-1" class="form-floating mb-3">
-                              <input class="form-control" id="ingrediente-1" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente-1" value="">
+                              <input class="form-control" id="ingrediente-1" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente[]" value="">
                               <button class ="boton" type="button" onclick="borrarIngrediente(${arrayPlatos.length}, i)">Borrar</button>
                               <label>Ingrediente 1</label>
                               <p></p>
@@ -97,7 +97,7 @@
                       <p></p>
                      <div class="mb-3" id="Imag">
                         <h4><p>Imagen</p></h4>
-                        <input type="text" class="form-control mb-3" id="imagen"/>
+                        <input type="text" class="form-control mb-3" id="imagen" name="imagen"/>
                         <input id="imgenerico" type="file" data-sb-validations="required" onclick="quitarRuta()"/>
                      </div>
                       <div id="guardado">

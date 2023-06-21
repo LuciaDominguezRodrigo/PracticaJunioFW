@@ -47,6 +47,7 @@ function borrarPlato(i) {
 }
 
 
+
 //Añade un campo de entrada de ingrediente en el formulario
 function addIngredienteFormulario() {
    const rama = document.getElementById('ingredientes-container');
@@ -55,7 +56,7 @@ function addIngredienteFormulario() {
    const siguienteIngrediente = hijos + 1;
    $("#ingredientes-container").append(`
       <div id="ingredientes-${siguienteIngrediente}" class="form-floating mb-3">
-         <input class="form-control" id="ingrediente-0" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente-${siguienteIngrediente}" value="">
+         <input class="form-control" id="ingrediente-0" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente[]" value="">
          <button class ="boton" type="button" onclick="borrarIngrediente(${siguienteIngrediente})">Borrar</button>
          <label>Ingrediente ${siguienteIngrediente}</label>
          <p></p>

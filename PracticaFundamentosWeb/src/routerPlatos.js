@@ -75,17 +75,21 @@ router.get('/formulario', (req, res) => {
    res.render('formulario');
 });
 
-/*router.post('/guardarPlato', (req, res) => {
+router.post('/guardarPlato', (req, res) => {
 
    let nombre = req.body.nombre;
    let desc = req.body.descripcion;
    let precio = req.body.precio;
    let valoracion = req.body.valoracion;
+   let ingredientes = req.body.ingrediente;
+   let imagen = req.body.imagen;
 
-   platosService.addPost({ user, title, text });
+   let ingredientesSinHuecos = ingredientes.filter(elemento => elemento.trim() !== '');
 
-   res.render('nuestraCarta');
-});*/
+   platosService.addPlato(nombre, desc, precio, valoracion, ingredientesSinHuecos, imagen);
+   
+   res.render('platoCreado');
+});
 
 
 
