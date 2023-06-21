@@ -49,10 +49,9 @@ function borrarPlato(i) {
 
 
 //Añade un campo de entrada de ingrediente en el formulario
-function addIngredienteFormulario() {
+function addCuadroIngredienteFormulario() {
    const rama = document.getElementById('ingredientes-container');
    const hijos = (rama.children.length);
-   console.log(hijos);
    const siguienteIngrediente = hijos + 1;
    $("#ingredientes-container").append(`
       <div id="ingredientes-${siguienteIngrediente}" class="form-floating mb-3">
@@ -63,6 +62,10 @@ function addIngredienteFormulario() {
       </div>
    `);
 }
+
+
+
+
 
 
 
