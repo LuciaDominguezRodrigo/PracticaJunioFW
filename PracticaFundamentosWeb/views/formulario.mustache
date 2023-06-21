@@ -60,30 +60,30 @@
           <div>
               <form action="/guardarPlato" method="post">
                      <div class="form-floating mb-3">
-                          <input class="form-control" id="nombre" placeholder=" " type='text' name='nombre'>
+                          <input class="form-control" id="nombre" placeholder=" " type='text' name='nombre' value="{{ datos.nombre }}">
                           <label>Nombre del plato</label>
                       </div>
              
                       <div class="form-floating mb-3">
-                          <textarea class="form-control" id="descripcion" placeholder=" " style="height: 10rem" type='text' name='descripcion'></textarea>
+                          <textarea class="form-control" id="descripcion" placeholder=" " style="height: 10rem" type='text' name='descripcion' value="{{ datos.descripcion }}"></textarea>
                           <label>Descripcion</label>
                        </div>
                      
                       <div class="form-floating mb-3">
-                          <input class="form-control" id="precio" placeholder=" " type='number' name='precio'/>
+                          <input class="form-control" id="precio" placeholder=" " type='number' name='precio' value="{{ datos.precio }}"/>
                           <label>Precio</label>
                       </div>
 
                       
                       <div class="form-floating mb-3">
-                          <input class="form-control" id="valoracion" placeholder=" " min="0" max="10" type='number' name='valoracion'/>
+                          <input class="form-control" id="valoracion" placeholder=" " min="0" max="10" type='number' name='valoracion' value="{{ datos.valoracion }}"/>
                           <label>Valoracion</label>
                       </div>
 
                       
                       <div id="ingredientes-container" class="form-floating mb-3">
                            <div id="ingredientes-1" class="form-floating mb-3">
-                              <input class="form-control" id="ingrediente-1" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente[]" value="">
+                              <input class="form-control" id="ingrediente-1" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente[]" value="{{ datos.ingredientes[0] }}">
                               <button class ="boton" type="button" onclick="borrarIngrediente(${arrayPlatos.length}, i)">Borrar</button>
                               <label>Ingrediente 1</label>
                               <p></p>
@@ -91,13 +91,13 @@
                       </div>
 
                      <div id="addIngrediente">
-						<button class="btn btn-secondary" onclick="addIngredienteFormulario()" type="button" id="aIngre">Añadir ingrediente</button>
+						<button class="btn btn-secondary" onclick="addCuadroIngredienteFormulario()" type="button" id="aIngre">Añadir ingrediente</button>
                      </div>
                       <p></p>
                       <p></p>
                      <div class="mb-3" id="Imag">
                         <h4><p>Imagen</p></h4>
-                        <input type="text" class="form-control mb-3" id="imagen" name="imagen"/>
+                        <input type="text" class="form-control mb-3" id="imagen" name="imagen" {{ datos.imagen }}/>
                         <input id="imgenerico" type="file" data-sb-validations="required" onclick="quitarRuta()"/>
                      </div>
                       <div id="guardado">

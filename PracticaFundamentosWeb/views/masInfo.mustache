@@ -60,7 +60,7 @@
 
     <div class=" botones">
       <a href="/nuestraCarta" class=" boton" onclick="">Mostrar Platos</a>
-      <a class=" boton" onclick="ModificarPlato(${id})">Modificar Plato</a>
+      <a class=" boton" href="/modify/{{plato.id}}" onclick="addIngredienteFormulario({{plato.ingredientes}})">Modificar Plato</a>
       <p><br></p>
       <a href="/delete/{{plato.id}}" onclick="return confirm('¿Esta seguro de que quiere borrarlo?')"><button class="btn btn-danger">Borrar plato</button></a>
       

@@ -1,4 +1,4 @@
-import { Plato } from './platosPredeterminados.js'
+import { Plato } from './platosPredeterminados.js';
 
 
 //Funciones con mapa plat
@@ -34,6 +34,25 @@ export function addPlato(nombre, descripcion, precio, valoracion, ingredientes, 
    let plato = new Plato(nombre, descripcion, precio, valoracion, ingredientes, imagen, nextId);
    plat.set(nextId, plato);
    nextId = nextId + 1;
+}
+
+
+//Comprueba si un plato es igual a uno de los platos del mapa
+export function comprobarPlatos(nombre, desc, precio, valoracion, ingredientes,imagen){ //IMPLEMENTAR
+
+}
+
+
+export function modificarPlato(nombre, desc, precio, valoracion, ingredientes,imagen, id){ //HACER
+   let plato = new Plato();
+   plato = getPlat(id);
+   plato.setNombre(nombre);
+   plato.setDescripcion(desc);
+   plato.setPrecio(precio);
+   plato.setValoracion(valoracion);
+   plato.ingredientes(ingredientes);
+   plato.setImagen(imagen);
+   
 }
 
 

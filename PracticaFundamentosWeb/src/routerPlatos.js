@@ -1,6 +1,7 @@
 import express from 'express';
 import { __dirname } from './dirname.js';
 import * as platosService from './platosService.js';
+import { Plato } from './platosPredeterminados.js';
 
 const router = express.Router();
 
@@ -83,12 +84,39 @@ router.post('/guardarPlato', (req, res) => {
    let valoracion = req.body.valoracion;
    let ingredientes = req.body.ingrediente;
    let imagen = req.body.imagen;
+   let id = req.body.id;
 
    let ingredientesSinHuecos = ingredientes.filter(elemento => elemento.trim() !== '');
 
-   platosService.addPlato(nombre, desc, precio, valoracion, ingredientesSinHuecos, imagen);
-   
+   if(platosService.comprobarPlatos(nombre, desc, precio, valoracion, ingredientes,imagen) === true){
+      platosService.modificarPlato(nombre, desc, precio, valoracion, ingredientes, imagen, id);
+   }
+   else{
+      platosService.addPlato(nombre, desc, precio, valoracion, ingredientesSinHuecos, imagen);
+   }
+  
    res.render('platoCreado');
+});
+
+
+//Modificar plato
+router.get('/modify/:id', (req, res) => {
+   let id = parseInt(req.params.id);
+   let plato = new Plato();
+   plato = platosService.getPlat(id);
+
+   let datos = {
+      nombre: plato.getNombre(),
+      descripcion: plato.getDescripcion(),
+      precio: plato.getPrecio(),
+      valoracion: plato.getValoracion(),
+      ingredientes: plato.getIngredientes(),
+      imagen: plato.getImagen(),
+      id: plato.getId()
+   }
+   //console.log(datos);
+
+   res.render('formulario', { datos });
 });
 
 
