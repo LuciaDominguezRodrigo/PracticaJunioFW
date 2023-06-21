@@ -47,30 +47,23 @@ function borrarPlato(i) {
 }
 
 
-function nuevoIngrediente(text, idNumber) {
-   $("#ingredientes").append(`
-       <div id="ingre-${idNumber}" class="white">
-         <input placeholder="Añada un ingrediente" value="`+ text + `" class="form-control" id="ingrediente-${idNumber}" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
-         <button id="bIngre-${idNumber}"> Borrar ingrediente</button>
-         <p></p>  
-       </div>    
-     `);
-
-}
-
 //Añade un campo de entrada de ingrediente en el formulario
 function addIngredienteFormulario() {
    const rama = document.getElementById('ingredientes-container');
    const hijos = (rama.children.length);
+   console.log(hijos);
    const siguienteIngrediente = hijos + 1;
    $("#ingredientes-container").append(`
       <div id="ingredientes-${siguienteIngrediente}" class="form-floating mb-3">
-         <input class="form-control" id="ingrediente-0" type="text" placeholder="Enter your message here..." data-sb-validations="required">
+         <input class="form-control" id="ingrediente-0" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente-${siguienteIngrediente}" value="">
          <button class ="boton" type="button" onclick="borrarIngrediente(${siguienteIngrediente})">Borrar</button>
          <label>Ingrediente ${siguienteIngrediente}</label>
          <p></p>
       </div>
    `);
 }
+
+
+
 
 
