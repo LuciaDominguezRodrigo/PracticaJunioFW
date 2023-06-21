@@ -195,11 +195,14 @@ body {
  .ctr {
    display: flex;
    justify-content: center;
-   align-items: center;
-   height: 100vh;
+   align-items: flex-start; /* Alineación hacia arriba */
+   max-width: 400px; /* Ancho máximo del contenedor */
+   margin: 0 auto; /* Centrar el contenedor en la pantalla */
+   margin-bottom: 20px; /* Margen inferior para ajustar la posición */
  }
  
  .ctr button {
    margin: 0 10px; /* Margen horizontal entre los botones */
+
  }
 
