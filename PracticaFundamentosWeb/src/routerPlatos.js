@@ -73,7 +73,7 @@ router.get('/nuevosPlatos', (req, res) => {
 //Rutas del formulario
 
 router.get('/formulario', (req, res) => {
-   res.render('formulario');
+   res.render('formulario', { nombreVista: 'nuestraCarta'});
 });
 
 router.post('/guardarPlato', (req, res) => {
@@ -85,14 +85,16 @@ router.post('/guardarPlato', (req, res) => {
    let ingredientes = req.body.ingrediente;
    let imagen = req.body.imagen;
    let id = req.body.id;
+   let vista = req.body.nombreVista;
+   console.log(vista);
 
    let ingredientesSinHuecos = ingredientes.filter(elemento => elemento.trim() !== '');
-  // if(vista == 'nuestraCarta'){ //REVISAR
-      platosService.addPlato(nombre, desc, precio, valoracion, ingredientes, imagen);
+   if(vista == 'nuestraCarta'){ 
+      platosService.addPlato(nombre, desc, precio, valoracion, ingredientesSinHuecos, imagen);
       platosService.mostrarTodosPlatos();
-   /*}
+   }/*
   else if (vista == 'masInfo'){
-      platosService.modificarPlato(nombre, desc, precio, valoracion, ingredientes, imagen, id);
+      platosService.modificarPlato(nombre, desc, precio, valoracion, ingredientesSinHuecos, imagen, id);
   }*/
    res.render('platoCreado');
 });
@@ -114,7 +116,7 @@ router.get('/modify/:id', (req, res) => {
       id: plato.getId()
    }
 
-   res.render('formulario', { datos });
+   res.render('formulario', { datos, nombreVista:'mostrarInfo' });
 });
 
 
