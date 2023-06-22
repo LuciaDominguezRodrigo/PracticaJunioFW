@@ -133,9 +133,10 @@
  <script src='../main.js'></script> <!--Enlace a archivo JS-->
 
   <script>
-      const ingredientes = "{{datos.ingredientes}}".split(",");
-      console.log({{nombreVista}});
-      addIngredientesFormulario(ingredientes);
+      if("{{ nombreVista }}" == "mostrarInfo"){
+         const ingredientes = "{{datos.ingredientes}}".split(",");
+         addIngredientesFormulario(ingredientes);
+      }
   </script>
 
 </body>

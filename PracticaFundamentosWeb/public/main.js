@@ -75,8 +75,7 @@ function addCuadroIngredienteFormulario() {
 
 function addIngredientesFormulario(ingred) {
    console.log(ingred);
-
-   for(let i=0; i < ingredientes.length; i++){
+   for(let i=0; i < ingred.length; i++){
       const rama = document.getElementById('ingredientes-container');
          const hijos = (rama.children.length);
          const siguienteIngrediente = hijos + 1;
