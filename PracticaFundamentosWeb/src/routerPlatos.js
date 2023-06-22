@@ -78,15 +78,23 @@ router.get('/formulario', (req, res) => {
 
 router.post('/guardarPlato', (req, res) => {
 
-   let nombre = req.body.nombre;
-   let desc = req.body.descripcion;
-   let precio = req.body.precio;
-   let valoracion = req.body.valoracion;
-   let ingredientes = req.body.ingrediente;
-   let imagen = req.body.imagen;
-   let id = req.body.id;
-   let vista = req.body.nombreVista;
+   let nombre = req.body.nombre; //OK
+   let desc = req.body.descripcion; //OK
+   let precio = req.body.precio; //OK
+   let valoracion = req.body.valoracion; //OK
+   let ingredientes = req.body.ingrediente; //OK
+   let imagen = req.body.imagen; //OK
+   let id = req.body.id; //FALLO
+   let vista = req.body.nombreVista; //OK
+   console.log(nombre);
+   console.log(desc);
+   console.log(precio);
+   console.log(valoracion);
+   console.log(ingredientes);
+   console.log(imagen);
+   console.log(id);
    console.log(vista);
+
 
    let ingredientesSinHuecos = new Array();
    if (ingredientes.size !== 0) {
@@ -96,7 +104,7 @@ router.post('/guardarPlato', (req, res) => {
       platosService.addPlato(nombre, desc, precio, valoracion, ingredientesSinHuecos, imagen);
       platosService.mostrarTodosPlatos();
    }
-  else if (vista == 'masInfo'){
+  else {
       platosService.modificarPlato(nombre, desc, precio, valoracion, ingredientesSinHuecos, imagen, id);
   }
    res.render('platoCreado');

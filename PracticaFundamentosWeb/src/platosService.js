@@ -45,13 +45,14 @@ export function addPlato(nombre, descripcion, precio, valoracion, ingredientes, 
 
 export function modificarPlato(nombre, desc, precio, valoracion, ingredientes, imagen, id){ 
    let plato = new Plato();
-   plato = getPlat(id);
-   plato.setNombre(nombre);
-   plato.setDescripcion(desc);
-   plato.setPrecio(parseInt(precio));
-   plato.setValoracion(valoracion);
-   plato.setIngredientes(ingredientes);
-   plato.setImagen(imagen);
+   plato = plat.get(parseInt(id));
+   //console.log(plato);
+   plato.nombre = nombre;
+   plato.descripcion = desc;
+   plato.precio = precio;
+   plato.valoracion = valoracion;
+   plato.ingredientes = ingredientes;
+   plato.imagen = imagen;
 }
 
 
