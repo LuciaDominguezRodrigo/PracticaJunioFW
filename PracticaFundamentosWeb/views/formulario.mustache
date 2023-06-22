@@ -65,7 +65,7 @@
                       </div>
              
                       <div class="form-floating mb-3">
-                          <textarea class="form-control" id="descripcion" placeholder=" " style="height: 10rem" type='text' name='descripcion' value="{{ datos.descripcion }}"></textarea>
+                          <input class="form-control" id="nombre" placeholder=" " type='text' name='descripcion' value="{{ datos.descripcion }}">
                           <label>Descripcion</label>
                        </div>
                      
@@ -82,12 +82,7 @@
 
                       
                       <div id="ingredientes-container" class="form-floating mb-3">
-                           <div id="ingredientes-1" class="form-floating mb-3">
-                              <input class="form-control" id="ingrediente-1" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente[]" value="{{ datos.ingredientes[0] }}">
-                              <button class ="boton" type="button" onclick="borrarIngrediente(${arrayPlatos.length}, i)">Borrar</button>
-                              <label>Ingrediente 1</label>
-                              <p></p>
-                           </div>
+
                       </div>
 
                      <div id="addIngrediente">
@@ -97,9 +92,12 @@
                       <p></p>
                      <div class="mb-3" id="Imag">
                         <h4><p>Imagen</p></h4>
-                        <input type="text" class="form-control mb-3" id="imagen" name="imagen" {{ datos.imagen }}/>
+                        <input class="form-control" id="imagen" placeholder=" " type='text' name='imagen' value="{{ datos.imagen }}">
                         <input id="imgenerico" type="file" data-sb-validations="required" onclick="quitarRuta()"/>
                      </div>
+
+                     <input type="hidden" name="nombreVista" value="{{ nombreVista }}">
+
                       <div id="guardado">
 						<div id="guardar"><input type='submit' value='Guardar plato'></div>
 						<p></p>
@@ -133,6 +131,12 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script> <!--Enlace JS de Bootstrap 5.3-->
  <script src='../main.js'></script> <!--Enlace a archivo JS-->
+
+  <script>
+      const ingredientes = "{{datos.ingredientes}}".split(",");
+      console.log({{nombreVista}});
+      addIngredientesFormulario(ingredientes);
+  </script>
 
 </body>
 

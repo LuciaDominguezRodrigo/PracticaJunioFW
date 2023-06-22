@@ -8,6 +8,12 @@ loadSampleData();
 let plato_id = plat.get(2);
 //console.log(plato_id);
 
+export function mostrarTodosPlatos(){
+   for(let i=0; i<plat.size; i++){
+      plat.get(i);
+   }
+}
+
 
 export function getRangoPlato(from, to) {
    let numPlatos = [...plat.values()]; //coge los valores que haya en el mapa y los mete en un array
@@ -37,22 +43,15 @@ export function addPlato(nombre, descripcion, precio, valoracion, ingredientes, 
 }
 
 
-//Comprueba si un plato es igual a uno de los platos del mapa
-export function comprobarPlatos(nombre, desc, precio, valoracion, ingredientes,imagen){ //IMPLEMENTAR
-
-}
-
-
-export function modificarPlato(nombre, desc, precio, valoracion, ingredientes,imagen, id){ //HACER
+export function modificarPlato(nombre, desc, precio, valoracion, ingredientes, imagen, id){ 
    let plato = new Plato();
    plato = getPlat(id);
    plato.setNombre(nombre);
    plato.setDescripcion(desc);
-   plato.setPrecio(precio);
+   plato.setPrecio(parseInt(precio));
    plato.setValoracion(valoracion);
-   plato.ingredientes(ingredientes);
+   plato.setIngredientes(ingredientes);
    plato.setImagen(imagen);
-   
 }
 
 

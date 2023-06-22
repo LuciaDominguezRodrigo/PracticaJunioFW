@@ -47,6 +47,15 @@ function borrarPlato(i) {
 }
 
 
+//Borra un ingrediente por una id
+function borrarIngrediente(id){
+   if(confirm("¿Está seguro de que quiere elininar el ingrediente?")){
+      let plato = document.getElementById('ingredientes-'+ id);
+      plato.parentNode.removeChild(plato);
+   }
+
+}
+
 
 //Añade un campo de entrada de ingrediente en el formulario
 function addCuadroIngredienteFormulario() {
@@ -55,13 +64,33 @@ function addCuadroIngredienteFormulario() {
    const siguienteIngrediente = hijos + 1;
    $("#ingredientes-container").append(`
       <div id="ingredientes-${siguienteIngrediente}" class="form-floating mb-3">
-         <input class="form-control" id="ingrediente-0" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente[]" value="">
+         <input class="form-control" id="ingrediente-0" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente[]" value="" >
          <button class ="boton" type="button" onclick="borrarIngrediente(${siguienteIngrediente})">Borrar</button>
-         <label>Ingrediente ${siguienteIngrediente}</label>
+         <label>Ingrediente</label>
          <p></p>
       </div>
    `);
 }
+
+
+function addIngredientesFormulario(ingred) {
+   console.log(ingred);
+
+   for(let i=0; i < ingredientes.length; i++){
+      const rama = document.getElementById('ingredientes-container');
+         const hijos = (rama.children.length);
+         const siguienteIngrediente = hijos + 1;
+         $("#ingredientes-container").append(`
+            <div id="ingredientes-${siguienteIngrediente}" class="form-floating mb-3">
+               <input class="form-control" id="ingrediente-${siguienteIngrediente}" type="text" placeholder="Enter your message here..." data-sb-validations="required" name="ingrediente[]" value="${ingred[i]}">
+               <button class ="boton" type="button" onclick="borrarIngrediente(${siguienteIngrediente})">Borrar</button>
+               <label>Ingrediente</label>
+               <p></p>
+            </div>
+         `);
+   }
+}
+
 
 
 

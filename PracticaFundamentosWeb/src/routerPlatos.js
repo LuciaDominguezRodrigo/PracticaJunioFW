@@ -87,14 +87,13 @@ router.post('/guardarPlato', (req, res) => {
    let id = req.body.id;
 
    let ingredientesSinHuecos = ingredientes.filter(elemento => elemento.trim() !== '');
-
-   if(platosService.comprobarPlatos(nombre, desc, precio, valoracion, ingredientes,imagen) === true){
+  // if(vista == 'nuestraCarta'){ //REVISAR
+      platosService.addPlato(nombre, desc, precio, valoracion, ingredientes, imagen);
+      platosService.mostrarTodosPlatos();
+   /*}
+  else if (vista == 'masInfo'){
       platosService.modificarPlato(nombre, desc, precio, valoracion, ingredientes, imagen, id);
-   }
-   else{
-      platosService.addPlato(nombre, desc, precio, valoracion, ingredientesSinHuecos, imagen);
-   }
-  
+  }*/
    res.render('platoCreado');
 });
 
@@ -114,7 +113,6 @@ router.get('/modify/:id', (req, res) => {
       imagen: plato.getImagen(),
       id: plato.getId()
    }
-   //console.log(datos);
 
    res.render('formulario', { datos });
 });
